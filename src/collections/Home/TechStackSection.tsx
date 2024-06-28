@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
-import { DockerSVG, GitSVG, GopherSVG, JavascriptSVG, LinuxSVG, PostgresSVG, ReactSVG, TailwindSVG, TypescriptSVG } from '@/components/lib/svg'
+import { DockerSVG, ExpoSVG, GitSVG, GopherSVG, JavascriptSVG, LinuxSVG, PostgresSVG, ReactSVG, TailwindSVG, TypescriptSVG } from '@/components/lib/svg'
 import { cn } from '@/utils/styles'
 
 const Technologies = [
@@ -10,6 +10,7 @@ const Technologies = [
   { title: 'React', icon: <ReactSVG/> },
   { title: 'Tailwind', icon: <TailwindSVG/> },
   { title: 'Golang', icon: <GopherSVG/> },
+  { title: 'Expo', icon: <ExpoSVG className={cn('transform scale-[1.1]')}/> },
   { title: 'Postgres', icon: <PostgresSVG/> },
   { title: 'Git', icon: <GitSVG/> },
   { title: 'Docker', icon: <DockerSVG className={cn('transform scale-[1.5]')}/> },
