@@ -16,6 +16,7 @@ export const TechnologyHeading = ({}: TechnologyHeadingProps) => {
         'React', 2000,
         'Next.js', 2000,
         'Golang', 2000,
+        'React Native', 2000
       ]} cursor wrapper="span" className={cn(
         'inline-block text-[1.1em] font-semibold text-transparent bg-clip-text',
         'animate-background-shine bg-gradient-FVW'

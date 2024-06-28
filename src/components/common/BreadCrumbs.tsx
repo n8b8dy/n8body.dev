@@ -15,7 +15,7 @@ export const BreadCrumbs = ({ breadcrumbs }: BreadCrumbsProps) => {
     <div className={cn('flex flex-wrap items-center text-sm md:text-base')}>
       {interleave(
         breadcrumbs.map((props) => <BreadCrumb key={`breadcrumbs-${props.content}`} {...props}/>),
-        <MdOutlineKeyboardArrowRight/>,
+        <MdOutlineKeyboardArrowRight key="breadcrumb-arrow"/>,
       )}
     </div>
   )

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import type { ProjectTag, ProjectTechnology } from '@prisma/client'
 
-import { GopherSVG, JavascriptSVG, NodeSVG, PostgresSVG, PrismaSVG, ReactSVG, TailwindSVG, TypescriptSVG, VueSVG } from '@/components/lib/svg'
+import { ExpoSVG, GopherSVG, JavascriptSVG, NodeSVG, PostgresSVG, PrismaSVG, ReactSVG, TailwindSVG, TypescriptSVG, VueSVG } from '@/components/lib/svg'
 
 export const ProjectTechnologies: Record<ProjectTechnology, {
   title: string
@@ -20,6 +20,9 @@ export const ProjectTechnologies: Record<ProjectTechnology, {
 
   POSTGRES: { title: 'Postgres', icon: <PostgresSVG/> },
   PRISMA: { title: 'Prisma', icon: <PrismaSVG/> },
+
+  REACTNATIVE: { title: 'React Native', icon: <ReactSVG/> },
+  EXPO: { title: 'Expo', icon: <ExpoSVG/> },
 }
 
 export const ProjectTags: Record<ProjectTag, string> = {
