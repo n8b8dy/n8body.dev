@@ -1,33 +1,9 @@
-import { relations, sql } from 'drizzle-orm'
-import { pgEnum, pgTable, text } from 'drizzle-orm/pg-core'
+import { pgTable, text } from 'drizzle-orm/pg-core'
+import { relations } from 'drizzle-orm'
+
 import { base } from '@/drizzle/schema/helpers'
 import { projectsToTechnologies } from '@/drizzle/schema/project/projectsToTechnologies'
 import { projectsToTags } from '@/drizzle/schema/project/projectsToTags'
-
-// export const projectTechnology = pgEnum('project_technology', [
-//   'JAVASCRIPT',
-//   'TYPESCRIPT',
-//   'GOLANG',
-//   'NODEJS',
-//
-//   'REACT',
-//   'VUEJS',
-//
-//   'TAILWIND',
-//   'POSTGRES',
-//   'PRISMA',
-//
-//   'EXPO',
-//   'REACTNATIVE',
-// ])
-
-export const projectTag = pgEnum('project_tag', [
-  'FRONTEND',
-  'BACKEND',
-  'FULLSTACK',
-  'SCRAPER',
-  'BOT',
-])
 
 export const projects = pgTable('projects', {
   ...base,
@@ -41,8 +17,7 @@ export const projects = pgTable('projects', {
 
   sections: text('sections')
     .array()
-    .default(sql`ARRAY
-    []::text[]`),
+    .default([])
 })
 
 export const projectsRelations = relations(projects, ({ many }) => ({
