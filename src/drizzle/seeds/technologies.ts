@@ -1,26 +1,29 @@
 import { db } from '@/drizzle/db'
 import { technologies } from '@/drizzle/schema/technology/technologies'
 
-const TECHNOLOGIES = [
-  ['JAVASCRIPT', 'JavaScript'],
-  ['TYPESCRIPT', 'TypeScript'],
-  ['GOLANG', 'Go'],
-  ['NODEJS', 'Node.js'],
+export const TECHNOLOGIES = [
+  ['JAVASCRIPT', 'JavaScript', '#F7DF1E'],
+  ['TYPESCRIPT', 'TypeScript', '#3178C6'],
+  ['GOLANG', 'Go', '#00ADD8'],
+  ['NODEJS', 'Node.js', '#8CC84B'],
   ['DENO', 'Deno'],
 
-  ['REACT', 'React'],
-  ['ANGULAR', 'Angular'],
+  ['REACT', 'React', '#61DAFB'],
+  ['ANGULAR', 'Angular', '#DD0031'],
 
-  ['TAILWIND', 'Tailwind'],
-  ['POSTGRES', 'PostgreSQL'],
+  ['NEXTJS', 'Next.js'],
+
+  ['TAILWIND', 'Tailwind CSS', '#38B2AC'],
+
+  ['POSTGRES', 'PostgreSQL', '#336791'],
   ['PRISMA', 'Prisma'],
   ['DRIZZLE', 'Drizzle'],
 
   ['EXPO', 'Expo'],
-  ['REACT_NATIVE', 'React Native'],
-]
+  ['REACT_NATIVE', 'React Native', '#61DAFB'],
+];
 
-async function seed() {
+(async function seed() {
   console.log('Seeding Database with technologies...')
 
   try {
@@ -29,14 +32,17 @@ async function seed() {
         .values({
           slug: technology[0],
           name: technology[1],
+          color: technology[2] || null,
         })
-        .onConflictDoNothing({ target: [technologies.slug, technologies.name] })
+        .onConflictDoUpdate({
+          target: technologies.slug,
+          set: { name: technology[1], color: technology[2] },
+        })
+
     }
 
-    console.log('Database seeding complete!')
+    console.log('Database seeding with technologies complete!')
   } catch (error) {
-    console.error('Error during seeding:', error)
+    console.error('Error during seeding with technologies:', error)
   }
-}
-
-seed()
+})()
