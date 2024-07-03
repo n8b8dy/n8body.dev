@@ -2,9 +2,9 @@ import { db } from '@/drizzle/db'
 import { tags } from '@/drizzle/schema/tag/tags'
 
 const TAGS = [
-  ['FRONTEND', 'Frontend'],
-  ['BACKEND', 'Backend'],
-  ['FULLSTACK', 'Fullstack'],
+  ['FRONTEND', 'Front End'],
+  ['BACKEND', 'Back End'],
+  ['FULLSTACK', 'Full Stack'],
   ['SCRAPER', 'Scraper'],
   ['MOBILE', 'Mobile'],
   ['BOT', 'Bot'],
