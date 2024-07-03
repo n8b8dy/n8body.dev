@@ -1,5 +1,5 @@
 {
-  "id": "4c418d09-e70c-44d1-83f6-75c9f5df5f7c",
+  "id": "2b0e55a3-e3e8-44e7-ab37-9ae08d33e803",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -12,7 +12,8 @@
           "name": "id",
           "type": "uuid",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "default": "gen_random_uuid()"
         },
         "created_at": {
           "name": "created_at",
@@ -27,6 +28,12 @@
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
+        },
+        "deleted_at": {
+          "name": "deleted_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
         },
         "name": {
           "name": "name",
@@ -118,7 +125,7 @@
           "type": "text[]",
           "primaryKey": false,
           "notNull": false,
-          "default": "ARRAY\n    []::text[]"
+          "default": []
         }
       },
       "indexes": {},
@@ -181,7 +188,16 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "projects_to_tags_unique_ids": {
+          "name": "projects_to_tags_unique_ids",
+          "nullsNotDistinct": false,
+          "columns": [
+            "project_id",
+            "tag_id"
+          ]
+        }
+      }
     },
     "public.projects_to_technologies": {
       "name": "projects_to_technologies",
@@ -230,7 +246,16 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "projects_to_technologies_unique_ids": {
+          "name": "projects_to_technologies_unique_ids",
+          "nullsNotDistinct": false,
+          "columns": [
+            "project_id",
+            "technology_id"
+          ]
+        }
+      }
     },
     "public.tags": {
       "name": "tags",
@@ -373,19 +398,7 @@
       }
     }
   },
-  "enums": {
-    "public.project_tag": {
-      "name": "project_tag",
-      "schema": "public",
-      "values": [
-        "FRONTEND",
-        "BACKEND",
-        "FULLSTACK",
-        "SCRAPER",
-        "BOT"
-      ]
-    }
-  },
+  "enums": {},
   "schemas": {},
   "sequences": {},
   "_meta": {

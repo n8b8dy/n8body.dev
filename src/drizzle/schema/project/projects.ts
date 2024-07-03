@@ -1,3 +1,5 @@
+import type { InferInsertModel, InferSelectModel } from 'drizzle-orm'
+
 import { pgTable, text } from 'drizzle-orm/pg-core'
 import { relations } from 'drizzle-orm'
 
@@ -24,3 +26,6 @@ export const projectsRelations = relations(projects, ({ many }) => ({
   projectsToTags: many(projectsToTags),
   projectsToTechnologies: many(projectsToTechnologies)
 }))
+
+export type Project = InferSelectModel<typeof projects>
+export type ProjectInsert = InferInsertModel<typeof projects>
