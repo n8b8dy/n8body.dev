@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core'
+import { pgTable, text } from 'drizzle-orm/pg-core'
 import { base } from '@/drizzle/schema/helpers'
 
 export const messages = pgTable('messages', {
