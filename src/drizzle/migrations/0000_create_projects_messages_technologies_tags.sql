@@ -1,13 +1,8 @@
-DO $$ BEGIN
- CREATE TYPE "public"."project_tag" AS ENUM('FRONTEND', 'BACKEND', 'FULLSTACK', 'SCRAPER', 'BOT');
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "messages" (
-	"id" uuid PRIMARY KEY NOT NULL,
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
+	"deleted_at" timestamp,
 	"name" text NOT NULL,
 	"email" text NOT NULL,
 	"message" text NOT NULL
@@ -23,19 +18,20 @@ CREATE TABLE IF NOT EXISTS "projects" (
 	"description" text,
 	"link" text,
 	"repository" text,
-	"sections" text[] DEFAULT ARRAY
-    []::text[],
+	"sections" text[] DEFAULT ,
 	CONSTRAINT "projects_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "projects_to_tags" (
 	"project_id" uuid NOT NULL,
-	"tag_id" uuid NOT NULL
+	"tag_id" uuid NOT NULL,
+	CONSTRAINT "projects_to_tags_unique_ids" UNIQUE("project_id","tag_id")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "projects_to_technologies" (
 	"project_id" uuid NOT NULL,
-	"technology_id" uuid NOT NULL
+	"technology_id" uuid NOT NULL,
+	CONSTRAINT "projects_to_technologies_unique_ids" UNIQUE("project_id","technology_id")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "tags" (
