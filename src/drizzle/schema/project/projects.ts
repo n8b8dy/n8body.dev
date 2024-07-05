@@ -1,4 +1,4 @@
-import type { InferInsertModel, InferSelectModel } from 'drizzle-orm'
+import { InferInsertModel, InferSelectModel, sql } from 'drizzle-orm'
 
 import { pgTable, text } from 'drizzle-orm/pg-core'
 import { relations } from 'drizzle-orm'
@@ -19,7 +19,7 @@ export const projects = pgTable('projects', {
 
   sections: text('sections')
     .array()
-    .default([])
+    .default(sql`ARRAY[]::text[]`),
 })
 
 export const projectsRelations = relations(projects, ({ many }) => ({
