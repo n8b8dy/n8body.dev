@@ -1,5 +1,5 @@
 {
-  "id": "2b0e55a3-e3e8-44e7-ab37-9ae08d33e803",
+  "id": "2d2a6582-1322-41a6-8df2-af1f50761ced",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -125,7 +125,7 @@
           "type": "text[]",
           "primaryKey": false,
           "notNull": false,
-          "default": []
+          "default": "ARRAY[]::text[]"
         }
       },
       "indexes": {},

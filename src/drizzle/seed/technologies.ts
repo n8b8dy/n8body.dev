@@ -13,15 +13,25 @@ export const TECHNOLOGIES = [
 
   ['NEXTJS', 'Next.js'],
 
+  ['NESTJS', 'NestJS', '#E0234E'],
+  ['EXPRESS', 'Express'],
+
   ['TAILWIND', 'Tailwind CSS', '#38B2AC'],
 
   ['POSTGRES', 'PostgreSQL', '#336791'],
-  ['PRISMA', 'Prisma'],
-  ['DRIZZLE', 'Drizzle'],
+  ['PRISMA', 'Prisma', '#0C344B'],
+  ['DRIZZLE', 'Drizzle', '#00897B'],
 
   ['EXPO', 'Expo'],
   ['REACT_NATIVE', 'React Native', '#61DAFB'],
+
+  ['DOCKER', 'Docker', '#2496ED'],
+  ['PODMAN', 'Podman'],
+
+  ['LINUX', 'Linux', '#FCC624'],
+  ['ARCH', 'Arch Linux', '#1793D1'],
 ];
+
 
 (async function seed() {
   console.log('Seeding Database with technologies...')

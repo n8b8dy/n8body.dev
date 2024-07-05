@@ -1,10 +1,11 @@
+import { eq, inArray } from 'drizzle-orm'
+
 import { db } from '@/drizzle/db'
 import { projects } from '@/drizzle/schema/project/projects'
-import { technologies } from '@/drizzle/schema/technology/technologies'
-import { eq, inArray } from 'drizzle-orm'
 import { projectsToTechnologies } from '@/drizzle/schema/project/projectsToTechnologies'
-import { tags } from '@/drizzle/schema/tag/tags'
 import { projectsToTags } from '@/drizzle/schema/project/projectsToTags'
+import { technologies } from '@/drizzle/schema/technology/technologies'
+import { tags } from '@/drizzle/schema/tag/tags'
 
 (async function seed() {
   console.log('Seeding Database with projects...')
@@ -27,9 +28,10 @@ import { projectsToTags } from '@/drizzle/schema/project/projectsToTags'
         projectId: projects.id,
       })
 
-    const projectTechs = await db.select({ id: technologies.id })
-      .from(technologies)
-      .where(inArray(technologies.slug, ['TYPESCRIPT', 'REACT', 'NEXTJS', 'POSTGRES', 'DRIZZLE']))
+    const projectTechs = await db.query.technologies.findMany({
+      where: inArray(technologies.slug, ['TYPESCRIPT', 'REACT', 'NEXTJS', 'POSTGRES', 'DRIZZLE']),
+      columns: { id: true },
+    })
     await db.insert(projectsToTechnologies).values(projectTechs.map(({ id: technologyId }) => ({
       projectId,
       technologyId,

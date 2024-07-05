@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS "projects" (
 	"description" text,
 	"link" text,
 	"repository" text,
-	"sections" text[] DEFAULT ,
+	"sections" text[] DEFAULT ARRAY[]::text[],
 	CONSTRAINT "projects_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
