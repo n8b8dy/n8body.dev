@@ -1,6 +1,7 @@
 'use client'
 
 import type { SubmitHandler } from 'react-hook-form'
+import type { MessageSchema } from '@/schemas/message'
 
 import { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -13,7 +14,7 @@ import { Input } from '@/collections/Contacts/Input'
 import { TextArea } from '@/collections/Contacts/TextArea'
 
 import { cn } from '@/utils/styles'
-import { MessageSchema, messageSchema } from '@/schemas/message'
+import { messageSchema } from '@/schemas/message'
 
 import { createMessage } from '@/actions/message'
 
