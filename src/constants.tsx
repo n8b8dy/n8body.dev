@@ -1,34 +1,38 @@
 import type { ReactNode } from 'react'
-import type { ProjectTag, ProjectTechnology } from '@prisma/client'
 
-import { ExpoSVG, GopherSVG, JavascriptSVG, NodeSVG, PostgresSVG, PrismaSVG, ReactSVG, TailwindSVG, TypescriptSVG, VueSVG } from '@/components/lib/svg'
+import {
+  DockerSVG,
+  ExpoSVG,
+  GopherSVG,
+  JavascriptSVG, LinuxSVG,
+  NodeSVG,
+  PostgresSVG,
+  PrismaSVG,
+  ReactSVG,
+  TailwindSVG,
+  TypescriptSVG,
+  VueSVG,
+} from '@/components/lib/svg'
+import { cn } from '@/utils/styles'
 
-export const ProjectTechnologies: Record<ProjectTechnology, {
-  title: string
-  icon: ReactNode
-}> = {
-  JAVASCRIPT: { title: 'JavaScript', icon: <JavascriptSVG/> },
-  TYPESCRIPT: { title: 'TypeScript', icon: <TypescriptSVG/> },
+export const TechnologiesIcons: Record<string, ReactNode> = {
+  JAVASCRIPT: <JavascriptSVG/>,
+  TYPESCRIPT: <TypescriptSVG/>,
 
-  GOLANG: { title: 'Golang', icon: <GopherSVG/> },
-  NODEJS: { title: 'Node.js', icon: <NodeSVG/> },
+  GOLANG: <GopherSVG/>,
+  NODEJS: <NodeSVG/>,
 
-  REACT: { title: 'React', icon: <ReactSVG/> },
-  VUEJS: { title: 'Vue.js', icon: <VueSVG/> },
+  REACT: <ReactSVG/>,
+  VUEJS: <VueSVG/>,
 
-  TAILWIND: { title: 'Tailwind', icon: <TailwindSVG/> },
+  TAILWIND: <TailwindSVG/>,
 
-  POSTGRES: { title: 'Postgres', icon: <PostgresSVG/> },
-  PRISMA: { title: 'Prisma', icon: <PrismaSVG/> },
+  POSTGRES: <PostgresSVG/>,
+  PRISMA: <PrismaSVG/>,
 
-  REACTNATIVE: { title: 'React Native', icon: <ReactSVG/> },
-  EXPO: { title: 'Expo', icon: <ExpoSVG/> },
-}
+  REACT_NATIVE: <ReactSVG/>,
+  EXPO: <ExpoSVG className={cn('transform scale-[1.1]')}/>,
 
-export const ProjectTags: Record<ProjectTag, string> = {
-  FRONTEND: 'Front End',
-  BACKEND: 'Back End',
-  FULLSTACK: 'Full Stack',
-  SCRAPER: 'Scraper',
-  BOT: 'Bot',
-}
+  DOCKER: <DockerSVG className={cn('transform scale-[1.5]')}/>,
+  LINUX:  <LinuxSVG className={cn('transform scale-[1.1]')}/>
+} as const
