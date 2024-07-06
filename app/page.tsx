@@ -8,22 +8,19 @@ import { AboutMeSection } from '@/collections/Home/AboutMeSection'
 import { TechStackSection } from '@/collections/Home/TechStackSection'
 import { ProjectsSection } from '@/collections/Home/ProjectsSection'
 
-import prisma from '@/lib/prisma'
 import { cn } from '@/utils/styles'
+import { db } from '@/drizzle/db'
 
 async function getData() {
-  const projects = await prisma.project.findMany({
-    take: 8,
-    orderBy: { createdAt: 'desc' },
-  })
+  const technologiesData = await db.query.technologies.findMany()
 
   return {
-    projects,
+    technologies: technologiesData,
   }
 }
 
 export default async function Home() {
-  const { projects } = await getData()
+  const { technologies } = await getData()
 
   return (
     <Fragment>
@@ -37,8 +34,8 @@ export default async function Home() {
       </div>
 
       <AboutMeSection/>
-      <TechStackSection/>
-      <ProjectsSection projects={projects}/>
+      <TechStackSection technologies={technologies}/>
+      {/*<ProjectsSection projects={projects}/>*/}
 
       <Section>
         <div className={cn('py-16 flex flex-col items-center gap-2')}>
