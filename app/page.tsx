@@ -10,9 +10,13 @@ import { ProjectsSection } from '@/collections/Home/ProjectsSection'
 
 import { cn } from '@/utils/styles'
 import { db } from '@/drizzle/db'
+import { eq } from 'drizzle-orm'
+import { technologies } from '@/drizzle/schema/technology/technologies'
 
 async function getData() {
-  const technologiesData = await db.query.technologies.findMany()
+  const technologiesData = await db.query.technologies.findMany({
+    where: eq(technologies.featured, true)
+  })
 
   return {
     technologies: technologiesData,

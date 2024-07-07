@@ -8,6 +8,13 @@
       "when": 1741509228036,
       "tag": "0000_create_projects_messages_technologies_tags",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1741551962996,
+      "tag": "0001_add_featured_column_to_technologies",
+      "breakpoints": true
     }
   ]
 }
