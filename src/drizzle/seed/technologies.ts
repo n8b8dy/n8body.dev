@@ -2,34 +2,34 @@ import { db } from '@/drizzle/db'
 import { technologies } from '@/drizzle/schema/technology/technologies'
 
 export const TECHNOLOGIES = [
-  ['JAVASCRIPT', 'JavaScript', '#F7DF1E'],
-  ['TYPESCRIPT', 'TypeScript', '#3178C6'],
-  ['GOLANG', 'Go', '#00ADD8'],
-  ['NODEJS', 'Node.js', '#8CC84B'],
-  ['DENO', 'Deno'],
+  { slug: 'JAVASCRIPT', name: 'JavaScript', color: '#F7DF1E', featured: true },
+  { slug: 'TYPESCRIPT', name: 'TypeScript', color: '#3178C6', featured: true },
+  { slug: 'GOLANG', name: 'Go', color: '#00ADD8', featured: true },
+  { slug: 'NODEJS', name: 'Node.js', color: '#8CC84B', featured: true },
+  { slug: 'DENO', name: 'Deno', color: null, featured: true },
 
-  ['REACT', 'React', '#61DAFB'],
-  ['ANGULAR', 'Angular', '#DD0031'],
+  { slug: 'REACT', name: 'React', color: '#61DAFB', featured: true },
+  { slug: 'ANGULAR', name: 'Angular', color: '#DD0031', featured: false },
 
-  ['NEXTJS', 'Next.js'],
+  { slug: 'NEXTJS', name: 'Next.js', color: null, featured: true },
 
-  ['NESTJS', 'NestJS', '#E0234E'],
-  ['EXPRESS', 'Express'],
+  { slug: 'NESTJS', name: 'NestJS', color: '#E0234E', featured: false },
+  { slug: 'EXPRESS', name: 'Express', color: null, featured: true },
 
-  ['TAILWIND', 'Tailwind CSS', '#38B2AC'],
+  { slug: 'TAILWIND', name: 'Tailwind CSS', color: '#38B2AC', featured: false },
 
-  ['POSTGRES', 'PostgreSQL', '#336791'],
-  ['PRISMA', 'Prisma', '#0C344B'],
-  ['DRIZZLE', 'Drizzle', '#00897B'],
+  { slug: 'POSTGRES', name: 'PostgreSQL', color: '#336791', featured: true },
+  { slug: 'PRISMA', name: 'Prisma', color: '#0C344B', featured: false },
+  { slug: 'DRIZZLE', name: 'Drizzle', color: '#00897B', featured: false },
 
-  ['EXPO', 'Expo'],
-  ['REACT_NATIVE', 'React Native', '#61DAFB'],
+  { slug: 'EXPO', name: 'Expo', color: null, featured: true },
+  { slug: 'REACT_NATIVE', name: 'React Native', color: '#61DAFB', featured: true },
 
-  ['DOCKER', 'Docker', '#2496ED'],
-  ['PODMAN', 'Podman'],
+  { slug: 'DOCKER', name: 'Docker', color: '#2496ED', featured: true },
+  { slug: 'PODMAN', name: 'Podman', color: null, featured: false },
 
-  ['LINUX', 'Linux', '#FCC624'],
-  ['ARCH', 'Arch Linux', '#1793D1'],
+  { slug: 'LINUX', name: 'Linux', color: '#FCC624', featured: true },
+  { slug: 'ARCH', name: 'Arch', color: '#1793D1', featured: true },
 ];
 
 
@@ -39,14 +39,10 @@ export const TECHNOLOGIES = [
   try {
     for (const technology of TECHNOLOGIES) {
       await db.insert(technologies)
-        .values({
-          slug: technology[0],
-          name: technology[1],
-          color: technology[2] || null,
-        })
+        .values(technology)
         .onConflictDoUpdate({
           target: technologies.slug,
-          set: { name: technology[1], color: technology[2] },
+          set: { name: technology.name, color: technology.color, featured: technology.featured },
         })
 
     }
