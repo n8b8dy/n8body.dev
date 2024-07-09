@@ -19,14 +19,16 @@ export const TECHNOLOGIES = [
   { slug: 'TAILWIND', name: 'Tailwind CSS', color: '#38B2AC', featured: false },
 
   { slug: 'POSTGRES', name: 'PostgreSQL', color: '#336791', featured: true },
-  { slug: 'PRISMA', name: 'Prisma', color: '#0C344B', featured: false },
-  { slug: 'DRIZZLE', name: 'Drizzle', color: '#00897B', featured: false },
+  { slug: 'PRISMA', name: 'Prisma', color: '#0C344B', featured: true },
+  { slug: 'DRIZZLE', name: 'Drizzle', color: '#00897B', featured: true },
 
   { slug: 'EXPO', name: 'Expo', color: null, featured: true },
   { slug: 'REACT_NATIVE', name: 'React Native', color: '#61DAFB', featured: true },
 
   { slug: 'DOCKER', name: 'Docker', color: '#2496ED', featured: true },
   { slug: 'PODMAN', name: 'Podman', color: null, featured: false },
+
+  { slug: 'GIT', name: 'Git', color: '#F03C2E', featured: true },
 
   { slug: 'LINUX', name: 'Linux', color: '#FCC624', featured: true },
   { slug: 'ARCH', name: 'Arch', color: '#1793D1', featured: true },
