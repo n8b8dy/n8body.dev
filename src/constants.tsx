@@ -1,10 +1,13 @@
 import type { ReactNode } from 'react'
 
 import {
-  DockerSVG,
-  ExpoSVG,
+  ArchSVG, DenoSVG,
+  DockerSVG, DrizzleSVG,
+  ExpoSVG, ExpressSVG, GitSVG,
   GopherSVG,
-  JavascriptSVG, LinuxSVG,
+  JavascriptSVG,
+  LinuxSVG,
+  NextSVG,
   NodeSVG,
   PostgresSVG,
   PrismaSVG,
@@ -18,21 +21,31 @@ import { cn } from '@/utils/styles'
 export const TechnologiesIcons: Record<string, ReactNode> = {
   JAVASCRIPT: <JavascriptSVG/>,
   TYPESCRIPT: <TypescriptSVG/>,
-
   GOLANG: <GopherSVG/>,
   NODEJS: <NodeSVG/>,
+  DENO: <DenoSVG/>,
 
   REACT: <ReactSVG/>,
+  ANGULAR: null,
   VUEJS: <VueSVG/>,
+
+  NEXTJS: <NextSVG/>,
+
+  EXPRESS: <ExpressSVG/>,
 
   TAILWIND: <TailwindSVG/>,
 
   POSTGRES: <PostgresSVG/>,
   PRISMA: <PrismaSVG/>,
+  DRIZZLE: <DrizzleSVG/>,
 
-  REACT_NATIVE: <ReactSVG/>,
   EXPO: <ExpoSVG className={cn('transform scale-[1.1]')}/>,
+  REACT_NATIVE: <ReactSVG/>,
 
   DOCKER: <DockerSVG className={cn('transform scale-[1.5]')}/>,
-  LINUX:  <LinuxSVG className={cn('transform scale-[1.1]')}/>
+
+  GIT: <GitSVG/>,
+
+  LINUX: <LinuxSVG className={cn('transform scale-[1.1]')}/>,
+  ARCH: <ArchSVG/>
 } as const
