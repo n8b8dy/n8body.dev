@@ -1,4 +1,6 @@
-import type { Project } from '@prisma/client'
+import type { Project } from '@/drizzle/schema/project/projects'
+import type { Technology } from '@/drizzle/schema/technology/technologies'
+import type { Tag } from '@/drizzle/schema/tag/tags'
 
 import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
@@ -7,7 +9,10 @@ import { ProjectCard } from '@/components/project/ProjectCard'
 import { cn } from '@/utils/styles'
 
 export interface ProjectsSectionProps {
-  projects: Array<Project>
+  projects: Array<Project & {
+    tags: Array<Tag>
+    technologies: Array<Technology>
+  }>
 }
 
 export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {

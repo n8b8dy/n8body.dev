@@ -9,7 +9,7 @@ export interface TechnologyCardProps {
 export const TechnologyCard = ({ icon, title }: TechnologyCardProps) => {
   return (
     <div className={cn(
-      'min-w-24 h-24 md:min-w-28 md:h-28 px-2 pt-2 pb-1.5 md:px-3 md:pt-4 md:pb-3',
+      'min-w-24 h-24 md:min-w-28 md:h-28 px-2 pt-4 pb-1.5 md:px-3 md:pb-3',
       'flex flex-col items-center justify-center gap-1',
       'text-sm md:text-lg bg-opacity-50 bg-neutral-200 dark:bg-neutral-900 rounded',
     )}>
