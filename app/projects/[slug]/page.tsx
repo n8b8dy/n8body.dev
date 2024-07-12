@@ -14,24 +14,15 @@ import { projects } from '@/drizzle/schema/project/projects'
 import { TechnologiesIcons } from '@/constants'
 
 export async function generateStaticParams() {
-  return db.query.projects.findMany({
-    columns: {
-      slug: true,
-    },
-  })
+  return db.query.projects.findMany({ columns: { slug: true } })
 }
 
 async function getData(slug: string) {
   const projectData = await db.query.projects.findFirst({
     where: eq(projects.slug, slug),
     with: {
-      projectsToTechnologies: {
-        with: { technology: true },
-      },
-      projectsToTags: {
-        with: { tag: true },
-      },
-
+      projectsToTechnologies: { with: { technology: true } },
+      projectsToTags: { with: { tag: true } },
     },
   })
 
@@ -43,53 +34,71 @@ async function getData(slug: string) {
     project: {
       ...project,
       tags: projectsToTags.map(projectToTag => projectToTag.tag),
-      technologies: projectsToTechnologies.map(projectToTechnology => projectToTechnology.technology),
+      technologies: projectsToTechnologies.map(
+        projectToTechnology => projectToTechnology.technology,
+      ),
     },
   }
 }
 
-export default async function ProjectsSlug({ params }: {
-  params: { slug: string }
-}) {
+export default async function ProjectsSlug({ params }: { params: { slug: string } }) {
   const { project } = await getData(params.slug)
 
-  if (!project) return (
-    <ErrorSection status={404} description="Project Not Found"/>
-  )
+  if (!project) return <ErrorSection status={404} description="Project Not Found" />
 
   const { id, title, tags, technologies, sections } = project
 
   return (
     <Section>
-      <BreadCrumbs breadcrumbs={[
-        { content: 'Home', href: '/' },
-        { content: 'Projects', href: '/projects' },
-        { content: title },
-      ]}/>
+      <BreadCrumbs
+        breadcrumbs={[
+          { content: 'Home', href: '/' },
+          { content: 'Projects', href: '/projects' },
+          { content: title },
+        ]}
+      />
 
       <div className={cn('mt-1 mb-2 flex items-center flex-wrap gap-x-2')}>
-        <Heading tag="h2" className={cn('text-3xl sm:text-3xl md:text-3xl font-medium')} terminal>{title}</Heading>
-        {tags.map(tag => <div
-          key={tag.slug}
-          className={cn('mt-1 px-3 py-1 text-sm bg-neutral-200 dark:bg-neutral-800 rounded-full')}
+        <Heading
+          tag="h2"
+          className={cn('text-3xl sm:text-3xl md:text-3xl font-medium')}
+          terminal
         >
-          {tag.name}
-        </div>)}
+          {title}
+        </Heading>
+        {tags.map(tag => (
+          <div
+            key={tag.slug}
+            className={cn(
+              'mt-1 px-3 py-1 text-sm bg-neutral-200 dark:bg-neutral-800 rounded-full',
+            )}
+          >
+            {tag.name}
+          </div>
+        ))}
       </div>
 
       <div className={cn('flex flex-wrap gap-2')}>
-        {technologies.map(technology => <div key={`${id}-${technology}`} className={cn(
-          'px-2 py-1.5 flex gap-1.5 text-sm bg-neutral-200 dark:bg-neutral-800 rounded')}>
-          <div className={cn('w-5')}>
-            {TechnologiesIcons[technology.slug]}
+        {technologies.map(technology => (
+          <div
+            key={`${id}-${technology}`}
+            className={cn(
+              'px-2 py-1.5 flex gap-1.5 text-sm bg-neutral-200 dark:bg-neutral-800 rounded',
+            )}
+          >
+            <div className={cn('w-5')}>{TechnologiesIcons[technology.slug]}</div>
+            {technology.name}
           </div>
-          {technology.name}
-        </div>)}
+        ))}
       </div>
 
-      {sections !== null && <div className={cn('mt-4 flex flex-col gap-1 text-lg')}>
-        {sections.map((section, index) => <MarkdownCompiler key={`${id}-section-${index}`} content={section}/>)}
-      </div>}
+      {sections !== null && (
+        <div className={cn('mt-4 flex flex-col gap-1 text-lg')}>
+          {sections.map((section, index) => (
+            <MarkdownCompiler key={`${id}-section-${index}`} content={section} />
+          ))}
+        </div>
+      )}
     </Section>
   )
 }

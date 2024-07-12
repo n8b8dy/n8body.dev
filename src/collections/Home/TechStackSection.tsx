@@ -19,13 +19,14 @@ export const TechStackSection = ({ technologies }: TechStackSectionProps) => {
         Tech Stack
       </Heading>
       <div className={cn('mt-2 mb-1 flex justify-center sm:justify-start flex-wrap gap-4')}>
-        {technologies.map((technology) => <TechnologyCard
-          key={technology.slug}
-          title={technology.name}
-          icon={TechnologiesIcons[technology.slug]}
-        />)}
+        {technologies.map(technology => (
+          <TechnologyCard
+            key={technology.slug}
+            title={technology.name}
+            icon={TechnologiesIcons[technology.slug]}
+          />
+        ))}
       </div>
     </Section>
   )
 }
-

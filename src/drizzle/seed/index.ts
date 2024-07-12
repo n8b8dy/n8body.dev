@@ -1,4 +1,4 @@
-(async function seed() {
+;(async function seed() {
   console.log('Seeding Database...')
 
   try {

@@ -16,7 +16,7 @@ export const HeroSection = ({}: HeroSectionProps) => {
       </Heading>
       <div className={cn('pl-1')}>
         <Heading tag="h4">Front-end Developer</Heading>
-        <TechnologyHeading/>
+        <TechnologyHeading />
       </div>
     </Section>
   )

@@ -11,14 +11,12 @@ import { db } from '@/drizzle/db'
 import { messages } from '@/drizzle/schema/message/messages'
 
 export async function createMessage(
-  data: MessageSchema
+  data: MessageSchema,
 ): Promise<ActionResponse<InferSelectModel<typeof messages>>> {
   try {
     const message = parse(messageSchema, data)
 
-    return {
-      data: (await db.insert(messages).values(message).returning())[0],
-    }
+    return { data: (await db.insert(messages).values(message).returning())[0] }
   } catch (err) {
     console.error('Error creating message: ', err)
 

@@ -14,25 +14,38 @@ export interface ProjectCardProps extends Project {
   technologies: Array<Technology>
 }
 
-export const ProjectCard = memo(({ slug, title, description, tags, technologies }: ProjectCardProps) => {
-  return (
-    <div className={cn('px-4 py-3 w-full flex flex-col gap-0.5 bg-opacity-50 bg-neutral-200 dark:bg-neutral-900 rounded')}>
-      <Heading tag="h5" href={`/projects/${slug}`}>
-        {title}
-      </Heading>
+export const ProjectCard = memo(
+  ({ slug, title, description, tags, technologies }: ProjectCardProps) => {
+    return (
+      <div
+        className={cn(
+          'px-4 py-3 w-full flex flex-col gap-0.5 bg-opacity-50 bg-neutral-200 dark:bg-neutral-900 rounded',
+        )}
+      >
+        <Heading tag="h5" href={`/projects/${slug}`}>
+          {title}
+        </Heading>
 
-      <p className={cn('mb-1 flex-1')}>{description}</p>
+        <p className={cn('mb-1 flex-1')}>{description}</p>
 
-      <div className={cn('items-center flex flex-wrap gap-1.5 text-xs md:text-sm')}>
-        {technologies.map(technology => <div key={technology.slug} className={cn('w-5 md:w-6')}>
-          {TechnologiesIcons[technology.slug]}
-        </div>)}
+        <div className={cn('items-center flex flex-wrap gap-1.5 text-xs md:text-sm')}>
+          {technologies.map(technology => (
+            <div key={technology.slug} className={cn('w-5 md:w-6')}>
+              {TechnologiesIcons[technology.slug]}
+            </div>
+          ))}
 
-        {tags.map(tag => <div key={tag.slug} className={cn('px-3 py-1 bg-neutral-300 dark:bg-neutral-800 rounded-full')}>
-          {tag.name}
-        </div>)}
+          {tags.map(tag => (
+            <div
+              key={tag.slug}
+              className={cn('px-3 py-1 bg-neutral-300 dark:bg-neutral-800 rounded-full')}
+            >
+              {tag.name}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  )
-})
+    )
+  },
+)
 ProjectCard.displayName = 'ProjectCard'

@@ -9,15 +9,15 @@ import { projectsToTechnologies } from '@/drizzle/schema/project/projectsToTechn
 export const technologies = pgTable('technologies', {
   ...base,
 
-  slug: text("slug").notNull().unique(),
-  name: text("name").notNull().unique(),
-  color: text("color"),
+  slug: text('slug').notNull().unique(),
+  name: text('name').notNull().unique(),
+  color: text('color'),
 
-  featured: boolean('featured').notNull().default(false)
+  featured: boolean('featured').notNull().default(false),
 })
 
 export const technologiesRelations = relations(technologies, ({ many }) => ({
-  projectsToTechnologies: many(projectsToTechnologies)
+  projectsToTechnologies: many(projectsToTechnologies),
 }))
 
 export type Technology = InferSelectModel<typeof technologies>
