@@ -21,15 +21,20 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en" suppressHydrationWarning>
-    <body className={cn(rubik.className, 'min-h-screen flex flex-col bg-neutral-50 dark:bg-neutral-950')}>
-    <Providers>
-      <Header/>
-      <main className={cn('min-h-[calc(100vh-62px)] flex flex-col items-center')}>
-        {children}
-      </main>
-      <Footer/>
-    </Providers>
-    </body>
+      <body
+        className={cn(
+          rubik.className,
+          'min-h-screen flex flex-col bg-neutral-50 dark:bg-neutral-950',
+        )}
+      >
+        <Providers>
+          <Header />
+          <main className={cn('min-h-[calc(100vh-62px)] flex flex-col items-center')}>
+            {children}
+          </main>
+          <Footer />
+        </Providers>
+      </body>
     </html>
   )
 }

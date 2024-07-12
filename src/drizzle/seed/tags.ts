@@ -8,18 +8,16 @@ const TAGS = [
   ['SCRAPER', 'Scraper'],
   ['MOBILE', 'Mobile'],
   ['BOT', 'Bot'],
-];
+]
 
-(async function seed() {
+;(async function seed() {
   console.log('Seeding Database with tags...')
 
   try {
     for (const tag of TAGS) {
-      await db.insert(tags)
-        .values({
-          slug: tag[0],
-          name: tag[1],
-        })
+      await db
+        .insert(tags)
+        .values({ slug: tag[0], name: tag[1] })
         .onConflictDoUpdate({ target: tags.slug, set: { name: tag[1] } })
     }
 

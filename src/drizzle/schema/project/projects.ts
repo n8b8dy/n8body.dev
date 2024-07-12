@@ -24,7 +24,7 @@ export const projects = pgTable('projects', {
 
 export const projectsRelations = relations(projects, ({ many }) => ({
   projectsToTags: many(projectsToTags),
-  projectsToTechnologies: many(projectsToTechnologies)
+  projectsToTechnologies: many(projectsToTechnologies),
 }))
 
 export type Project = InferSelectModel<typeof projects>

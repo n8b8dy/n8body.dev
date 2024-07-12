@@ -14,8 +14,10 @@ export const BreadCrumbs = ({ breadcrumbs }: BreadCrumbsProps) => {
   return (
     <div className={cn('flex flex-wrap items-center text-sm md:text-base')}>
       {interleave(
-        breadcrumbs.map((props) => <BreadCrumb key={`breadcrumbs-${props.content}`} {...props}/>),
-        <MdOutlineKeyboardArrowRight key="breadcrumb-arrow"/>,
+        breadcrumbs.map(props => (
+          <BreadCrumb key={`breadcrumbs-${props.content}`} {...props} />
+        )),
+        <MdOutlineKeyboardArrowRight key="breadcrumb-arrow" />,
       )}
     </div>
   )
@@ -27,12 +29,17 @@ interface BreadCrumbProps {
 }
 
 const BreadCrumb = ({ content, href }: BreadCrumbProps) => {
-  return (
-    href === undefined
-      ? <span className={cn('px-2 py-1 opacity-75')}>{content}</span>
-      : <Link href={href} className={cn(
+  return href === undefined ? (
+    <span className={cn('px-2 py-1 opacity-75')}>{content}</span>
+  ) : (
+    <Link
+      href={href}
+      className={cn(
         'px-2 py-1 rounded opacity-75 hover:opacity-100 active:opacity-75 transition',
         'bg-action-button',
-      )}>{content}</Link>
+      )}
+    >
+      {content}
+    </Link>
   )
 }

@@ -9,10 +9,7 @@ import { ProjectCard } from '@/components/project/ProjectCard'
 import { cn } from '@/utils/styles'
 
 export interface ProjectsSectionProps {
-  projects: Array<Project & {
-    tags: Array<Tag>
-    technologies: Array<Technology>
-  }>
+  projects: Array<Project & { tags: Array<Tag>; technologies: Array<Technology> }>
 }
 
 export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
@@ -22,7 +19,9 @@ export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
         Projects
       </Heading>
       <div className={cn('mt-1 grid md:grid-cols-2 gap-2')}>
-        {projects.map((props) => <ProjectCard key={props.id} {...props}/>)}
+        {projects.map(props => (
+          <ProjectCard key={props.id} {...props} />
+        ))}
       </div>
     </Section>
   )

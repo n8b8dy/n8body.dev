@@ -13,17 +13,23 @@ export const NavbarButton = ({ href, text }: NavbarButtonProps) => {
   const pathname = usePathname()
 
   return (
-    <Link href={href} className={cn(
-      'px-3 py-2 flex items-center rounded text-lg transition',
-      'bg-action-button',
-    )}>
+    <Link
+      href={href}
+      className={cn(
+        'px-3 py-2 flex items-center rounded text-lg transition',
+        'bg-action-button',
+      )}
+    >
       <span
         className={cn(
           String(pathname).toLowerCase() === href && [
             'text-transparent bg-clip-text',
             'animate-background-shine bg-gradient-FVW',
           ],
-        )}>{text}</span>
+        )}
+      >
+        {text}
+      </span>
     </Link>
   )
 }

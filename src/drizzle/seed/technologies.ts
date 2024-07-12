@@ -32,21 +32,23 @@ export const TECHNOLOGIES = [
 
   { slug: 'LINUX', name: 'Linux', color: '#FCC624', featured: true },
   { slug: 'ARCH', name: 'Arch', color: '#1793D1', featured: true },
-];
-
-
-(async function seed() {
+]
+;(async function seed() {
   console.log('Seeding Database with technologies...')
 
   try {
     for (const technology of TECHNOLOGIES) {
-      await db.insert(technologies)
+      await db
+        .insert(technologies)
         .values(technology)
         .onConflictDoUpdate({
           target: technologies.slug,
-          set: { name: technology.name, color: technology.color, featured: technology.featured },
+          set: {
+            name: technology.name,
+            color: technology.color,
+            featured: technology.featured,
+          },
         })
-
     }
 
     console.log('Database seeding with technologies complete!')

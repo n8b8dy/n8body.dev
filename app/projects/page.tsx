@@ -10,31 +10,24 @@ import { db } from '@/drizzle/db'
 import { technologies } from '@/drizzle/schema/technology/technologies'
 
 async function getData() {
-  const projectsData = (await db.query.projects.findMany({
-    limit: 5,
-    orderBy: desc(technologies.updatedAt),
-    with: {
-      projectsToTechnologies: {
-        with: {
-          technology: true
-        }
+  const projectsData = (
+    await db.query.projects.findMany({
+      limit: 5,
+      orderBy: desc(technologies.updatedAt),
+      with: {
+        projectsToTechnologies: { with: { technology: true } },
+        projectsToTags: { with: { tag: true } },
       },
-      projectsToTags: {
-        with: {
-          tag: true,
-        }
-      },
-
-    }
-  })).map(({  projectsToTechnologies, projectsToTags, ...project }) => ({
+    })
+  ).map(({ projectsToTechnologies, projectsToTags, ...project }) => ({
     ...project,
     tags: projectsToTags.map(projectToTag => projectToTag.tag),
-    technologies: projectsToTechnologies.map(projectToTechnology => projectToTechnology.technology)
+    technologies: projectsToTechnologies.map(
+      projectToTechnology => projectToTechnology.technology,
+    ),
   }))
 
-  return {
-    projects: projectsData,
-  }
+  return { projects: projectsData }
 }
 
 export default async function Projects() {
@@ -42,9 +35,15 @@ export default async function Projects() {
 
   return (
     <Section className={cn('gap-2')}>
-      <Heading tag="h2" className={cn('my-2 text-2xl sm:text-3xl md:text-3xl font-medium')} terminal>Projects</Heading>
+      <Heading
+        tag="h2"
+        className={cn('my-2 text-2xl sm:text-3xl md:text-3xl font-medium')}
+        terminal
+      >
+        Projects
+      </Heading>
 
-      <Catalog projects={projects}/>
+      <Catalog projects={projects} />
     </Section>
   )
 }
