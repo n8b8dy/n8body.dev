@@ -46,7 +46,7 @@ export default async function ProjectsSlug({ params }: { params: { slug: string 
 
   if (!project) return <ErrorSection status={404} description="Project Not Found" />
 
-  const { id, title, tags, technologies, sections } = project
+  const { title, tags, technologies, sections } = project
 
   return (
     <Section>
@@ -70,7 +70,8 @@ export default async function ProjectsSlug({ params }: { params: { slug: string 
           <div
             key={tag.slug}
             className={cn(
-              'mt-1 px-3 py-1 text-sm bg-neutral-200 dark:bg-neutral-800 rounded-full',
+              'mt-1 px-3 py-1',
+              'text-sm bg-neutral-200 dark:bg-neutral-800 bg-opacity-40 dark:bg-opacity-50 rounded-full',
             )}
           >
             {tag.name}
@@ -81,9 +82,10 @@ export default async function ProjectsSlug({ params }: { params: { slug: string 
       <div className={cn('flex flex-wrap gap-2')}>
         {technologies.map(technology => (
           <div
-            key={`${id}-${technology}`}
+            key={technology.slug}
             className={cn(
-              'px-2 py-1.5 flex gap-1.5 text-sm bg-neutral-200 dark:bg-neutral-800 rounded',
+              'px-2 py-1.5 flex gap-1.5',
+              'text-sm bg-neutral-200 dark:bg-neutral-800 bg-opacity-40 dark:bg-opacity-50 rounded',
             )}
           >
             <div className={cn('w-5')}>{TechnologiesIcons[technology.slug]}</div>
@@ -95,7 +97,7 @@ export default async function ProjectsSlug({ params }: { params: { slug: string 
       {sections !== null && (
         <div className={cn('mt-4 flex flex-col gap-1 text-lg')}>
           {sections.map((section, index) => (
-            <MarkdownCompiler key={`${id}-section-${index}`} content={section} />
+            <MarkdownCompiler key={index} content={section} />
           ))}
         </div>
       )}

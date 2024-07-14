@@ -64,7 +64,7 @@ export default async function Home() {
           <a
             href="/files/Ruslan_Shamsutdinov_CV.pdf"
             className={cn(
-              'px-4 py-1.5 self-center text-white font-semibold rounded',
+              'px-4 py-2 self-center text-white font-semibold rounded',
               'animate-background-shine bg-gradient-FVW',
             )}
             download
