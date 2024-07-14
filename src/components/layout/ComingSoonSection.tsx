@@ -20,7 +20,7 @@ export const ComingSoonSection = ({}: ComingSoonSectionProps) => {
       </h3>
       <Link
         href="https://github.com/n8b8dy/n8body.dev_next-fullstack"
-        className={cn('mt-3 px-4 py-1 font-medium rounded', 'bg-gradient-FVW')}
+        className={cn('mt-3 px-4 py-2 font-medium rounded text-white', 'bg-gradient-FVW')}
       >
         Get Updates
       </Link>

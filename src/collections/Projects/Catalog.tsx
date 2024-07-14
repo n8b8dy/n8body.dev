@@ -38,7 +38,8 @@ export const Catalog = ({ projects }: CatalogProps) => {
         value={searchText}
         onChange={event => setSearchText(event.currentTarget.value)}
         className={cn(
-          'px-2 py-2 border-[1px] border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 rounded',
+          'px-3 py-2 border-[1px]',
+          'border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 bg-opacity-40 dark:bg-opacity-70 rounded',
         )}
       />
 
