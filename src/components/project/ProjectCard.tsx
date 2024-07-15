@@ -19,16 +19,15 @@ export const ProjectCard = memo(
     return (
       <div
         className={cn(
-          'px-4 py-3 w-full flex flex-col gap-0.5',
-          'bg-neutral-200 dark:bg-neutral-900 bg-opacity-40 dark:bg-opacity-70' +
-          'rounded',
+          'px-5 py-3 w-full flex flex-col gap-0.5',
+          'bg-neutral-200 dark:bg-neutral-900 bg-opacity-40 dark:bg-opacity-70 rounded',
         )}
       >
         <Heading tag="h5" href={`/projects/${slug}`}>
           {title}
         </Heading>
 
-        <p className={cn('mb-1 flex-1')}>{description}</p>
+        <p className={cn('mb-1 flex-1 line-clamp-3 opacity-80')}>{description}</p>
 
         <div className={cn('items-center flex flex-wrap gap-1.5 text-xs md:text-sm')}>
           {technologies.map(technology => (
