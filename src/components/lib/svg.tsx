@@ -153,8 +153,8 @@ export const NextSVG = (props: SVGProps) => {
       viewBox="0 0 512 512"
       fillRule="evenodd"
       clipRule="evenodd"
-      stroke-linejoin="round"
-      stroke-miterlimit="2"
+      strokeLinejoin="round"
+      strokeMiterlimit="2"
       {...props}
     >
       <g transform="translate(.722 .64) scale(6.375)">
@@ -176,8 +176,8 @@ export const NextSVG = (props: SVGProps) => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(51.103 -29.93 76.555) scale(25.1269)"
         >
-          <stop offset="0" stop-color="#fff" />
-          <stop offset="1" stop-color="#fff" stop-opacity="0" />
+          <stop offset="0" stopColor="#fff" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="prefix___Linear2"
@@ -188,8 +188,8 @@ export const NextSVG = (props: SVGProps) => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90.218 14.934 38.787) scale(23.50017)"
         >
-          <stop offset="0" stop-color="#fff" />
-          <stop offset="1" stop-color="#fff" stop-opacity="0" />
+          <stop offset="0" stopColor="#fff" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>
@@ -202,9 +202,8 @@ export const ExpressSVG = (props: SVGProps) => {
       <defs>
         <style>{`.cls-1{fill:#494949;}.cls-2{fill:#fff;}`}</style>
       </defs>
-      <title>Asset 19expressjs-logo</title>
-      <g id="Layer_2" data-name="Layer 2">
-        <g id="Layer_1-2" data-name="Layer 1">
+      <g id="Layer_2">
+        <g id="Layer_1-2">
           <path
             className="cls-1"
             d="M43.5,0h0A43.51,43.51,0,0,1,87,43.5h0A43.51,43.51,0,0,1,43.5,87h0A43.51,43.51,0,0,1,0,43.5H0A43.51,43.51,0,0,1,43.5,0Z"
