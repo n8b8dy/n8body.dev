@@ -12,6 +12,11 @@ import { db } from '@/drizzle/db'
 import { projects } from '@/drizzle/schema/project/projects'
 
 import { TechnologiesIcons } from '@/constants'
+import { RiGitRepositoryFill, RiGitRepositoryLine } from 'react-icons/ri'
+import { TbWorldShare } from 'react-icons/tb'
+import { SiOpensourceinitiative } from 'react-icons/si'
+import { RxExternalLink } from 'react-icons/rx'
+import { VscGithub } from 'react-icons/vsc'
 
 export async function generateStaticParams() {
   return db.query.projects.findMany({ columns: { slug: true } })
@@ -46,7 +51,7 @@ export default async function ProjectsSlug({ params }: { params: { slug: string 
 
   if (!project) return <ErrorSection status={404} description="Project Not Found" />
 
-  const { title, tags, technologies, sections } = project
+  const { title, description, technologies, tags, link, repository, sections } = project
 
   return (
     <Section>
@@ -77,7 +82,14 @@ export default async function ProjectsSlug({ params }: { params: { slug: string 
             {tag.name}
           </div>
         ))}
+
+        <div className={cn('ml-auto flex items-center gap-3')}>
+          {link && <a href={link}><RxExternalLink className={cn('w-7 h-7')}/></a>}
+          {repository && <a href={repository}><VscGithub className={cn('w-6 h-6')}/></a>}
+        </div>
       </div>
+
+      <p className={cn('mb-2')}>{description}</p>
 
       <div className={cn('flex flex-wrap gap-2')}>
         {technologies.map(technology => (
@@ -94,7 +106,7 @@ export default async function ProjectsSlug({ params }: { params: { slug: string 
         ))}
       </div>
 
-      {sections !== null && (
+      {sections && (
         <div className={cn('mt-4 flex flex-col gap-1 text-lg')}>
           {sections.map((section, index) => (
             <MarkdownCompiler key={index} content={section} />
