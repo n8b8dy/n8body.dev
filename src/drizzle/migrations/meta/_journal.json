@@ -15,6 +15,13 @@
       "when": 1741551962996,
       "tag": "0001_add_featured_column_to_technologies",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1741802305406,
+      "tag": "0002_create_users",
+      "breakpoints": true
     }
   ]
 }
