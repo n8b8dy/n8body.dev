@@ -29,6 +29,13 @@
       "when": 1741830407795,
       "tag": "0003_create_sessions",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1741834894404,
+      "tag": "0004_delete_token_column_from_sessions",
+      "breakpoints": true
     }
   ]
 }

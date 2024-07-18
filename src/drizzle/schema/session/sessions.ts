@@ -11,7 +11,6 @@ export const sessions = pgTable('sessions', {
   ...base,
 
   userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
-  token: text('token').notNull(),
   expiresAt: timestamp('expires_at').notNull(),
 })
 
