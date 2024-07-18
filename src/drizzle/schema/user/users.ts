@@ -1,9 +1,11 @@
 import type { InferInsertModel, InferSelectModel } from 'drizzle-orm'
 
-import { pgTable, text } from 'drizzle-orm/pg-core'
+import { relations } from 'drizzle-orm'
+import { pgTable, text,  } from 'drizzle-orm/pg-core'
 
 import { base } from '@/drizzle/schema/helpers'
 import { userRole } from '@/drizzle/schema/user/usersRole'
+import { sessions } from '@/drizzle/schema/session/sessions'
 
 export const users = pgTable('users', {
   ...base,
@@ -14,6 +16,9 @@ export const users = pgTable('users', {
   role: userRole('role').notNull().default('USER'),
 })
 
+export const usersRelations = relations(users, ({ many }) => ({
+  sessions: many(sessions),
+}));
 
 export type User = InferSelectModel<typeof users>
 export type UserInsert = InferInsertModel<typeof users>
