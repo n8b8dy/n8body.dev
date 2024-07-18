@@ -2,10 +2,15 @@ import 'dotenv/config'
 import { Pool } from 'pg'
 import { drizzle } from 'drizzle-orm/node-postgres'
 
+import * as usersSchema from '@/drizzle/schema/user/users'
+import * as sessionsSchema from '@/drizzle/schema/session/sessions'
+
 import * as messagesSchema from '@/drizzle/schema/message/messages'
+
 import * as projectsSchema from '@/drizzle/schema/project/projects'
 import * as projectsToTechnologiesSchema from '@/drizzle/schema/project/projectsToTechnologies'
 import * as projectsToTagsSchema from '@/drizzle/schema/project/projectsToTags'
+
 import * as technologiesSchema from '@/drizzle/schema/technology/technologies'
 import * as tagsSchema from '@/drizzle/schema/tag/tags'
 
@@ -20,10 +25,15 @@ const pool = new Pool({
 
 export const db = drizzle(pool, {
   schema: {
+    ...usersSchema,
+    ...sessionsSchema,
+
     ...messagesSchema,
+
     ...projectsSchema,
     ...projectsToTechnologiesSchema,
     ...projectsToTagsSchema,
+
     ...technologiesSchema,
     ...tagsSchema,
   },
