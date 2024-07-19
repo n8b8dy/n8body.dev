@@ -31,7 +31,7 @@ export const Navbar = ({}: NavbarProps) => {
 
       <nav className={cn('ml-2 hidden md:flex gap-1 text-lg')}>
         {NavbarButtons.map(props => (
-          <NavbarButton key={`nav-${props.href}`} {...props} />
+          <NavbarButton key={props.href} {...props} />
         ))}
       </nav>
     </div>
