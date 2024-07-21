@@ -1,10 +1,10 @@
 'use server'
 
+import type { Message } from '@/drizzle/schema/message/messages'
 import type { MessageSchema } from '@/schemas/message'
 import type { ActionResponse } from '@/types/actions'
 
 import { parse, ValiError } from 'valibot'
-import { InferSelectModel } from 'drizzle-orm'
 
 import { messageSchema } from '@/schemas/message'
 import { db } from '@/drizzle/db'
@@ -12,7 +12,7 @@ import { messages } from '@/drizzle/schema/message/messages'
 
 export async function createMessage(
   data: MessageSchema,
-): Promise<ActionResponse<InferSelectModel<typeof messages>>> {
+): Promise<ActionResponse<Message>> {
   try {
     const message = parse(messageSchema, data)
 
