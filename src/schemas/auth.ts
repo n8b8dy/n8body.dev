@@ -27,3 +27,20 @@ export const signUpSchema = object({
 })
 
 export type SignUpSchema = InferOutput<typeof signUpSchema>
+
+export const logInSchema = object({
+  email: pipe(
+    string('Email should be a string'),
+    nonEmpty('Email is required'),
+    maxLength(128, "Email shouldn't exceed 128 characters"),
+    email('Email should look like: username@domain.com'),
+  ),
+  password: pipe(
+    string('Password should be a string'),
+    nonEmpty('Password is required'),
+    minLength(8, 'Password should be at least 8 characters'),
+    maxLength(128, "Password shouldn't exceed 128 characters"),
+  ),
+})
+
+export type LogInSchema = InferOutput<typeof logInSchema>
