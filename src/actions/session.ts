@@ -1,3 +1,6 @@
+// TODO: Move to the lib directory
+import 'server-only'
+
 import { eq } from 'drizzle-orm'
 import { cookies } from 'next/headers'
 
@@ -29,6 +32,7 @@ export async function createSession(data: Pick<SessionInsert, 'userId'>) {
   return encryptedSession
 }
 
+// TODO: Get session from the database
 export async function getSession() {
   const encryptedSession = cookies().get(SESSION_COOKIE_NAME)?.value;
 
