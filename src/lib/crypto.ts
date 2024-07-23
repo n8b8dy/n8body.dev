@@ -7,7 +7,7 @@ import { Session } from '@/drizzle/schema/session/sessions'
 const secretKey = process.env.SESSION_SECRET
 const encodedKey = new TextEncoder().encode(secretKey)
 
-interface EncryptionSession extends Pick<Session, 'id' |'userId' | 'expiresAt'> {}
+interface EncryptionSession extends Pick<Session, 'id'> {}
 
 export async function encryptSession(session: EncryptionSession) {
   return new SignJWT(session)
