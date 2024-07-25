@@ -2,7 +2,7 @@
   console.log('Seeding Database...')
 
   try {
-    await import('./technologies')
+    await import('./domains')
     await import('./tags')
     await import('./projects')
 

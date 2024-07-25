@@ -11,6 +11,7 @@ import * as projectsSchema from '@/drizzle/schema/project/projects'
 import * as projectsToTechnologiesSchema from '@/drizzle/schema/project/projectsToTechnologies'
 import * as projectsToTagsSchema from '@/drizzle/schema/project/projectsToTags'
 
+import * as domainsSchema from '@/drizzle/schema/domain/domains'
 import * as technologiesSchema from '@/drizzle/schema/technology/technologies'
 import * as tagsSchema from '@/drizzle/schema/tag/tags'
 
@@ -34,6 +35,7 @@ export const db = drizzle(pool, {
     ...projectsToTechnologiesSchema,
     ...projectsToTagsSchema,
 
+    ...domainsSchema,
     ...technologiesSchema,
     ...tagsSchema,
   },
