@@ -36,6 +36,13 @@
       "when": 1741834894404,
       "tag": "0004_delete_token_column_from_sessions",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1749249680809,
+      "tag": "0005_create_domains",
+      "breakpoints": true
     }
   ]
 }

@@ -11,11 +11,13 @@ import { ProjectsSection } from '@/collections/Home/ProjectsSection'
 
 import { cn } from '@/utils/styles'
 import { db } from '@/drizzle/db'
+import { domains } from '@/drizzle/schema/domain/domains'
 import { technologies } from '@/drizzle/schema/technology/technologies'
 
 async function getData() {
-  const technologiesData = await db.query.technologies.findMany({
-    where: eq(technologies.featured, true),
+  const domainsData = await db.query.domains.findMany({
+    where: eq(domains.featured, true),
+    with: { technologies: true },
   })
 
   const projectsData = (
@@ -35,11 +37,11 @@ async function getData() {
     ),
   }))
 
-  return { technologies: technologiesData, projects: projectsData }
+  return { domains: domainsData, projects: projectsData }
 }
 
 export default async function Home() {
-  const { technologies, projects } = await getData()
+  const { domains, projects } = await getData()
 
   return (
     <Fragment>
@@ -55,7 +57,7 @@ export default async function Home() {
       </div>
 
       <AboutMeSection />
-      <TechStackSection technologies={technologies} />
+      <TechStackSection domains={domains} />
       <ProjectsSection projects={projects} />
 
       <Section>
