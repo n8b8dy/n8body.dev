@@ -43,6 +43,13 @@
       "when": 1749249680809,
       "tag": "0005_create_domains",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1749339211137,
+      "tag": "0006_add_ranks_to_technologies",
+      "breakpoints": true
     }
   ]
 }
