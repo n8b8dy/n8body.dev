@@ -1,6 +1,6 @@
 import type { InferInsertModel, InferSelectModel } from 'drizzle-orm'
 
-import { boolean, pgTable, text, uuid } from 'drizzle-orm/pg-core'
+import { boolean, integer, pgTable, text, uuid } from 'drizzle-orm/pg-core'
 import { relations } from 'drizzle-orm'
 
 import { base } from '@/drizzle/schema/helpers'
@@ -15,6 +15,7 @@ export const technologies = pgTable('technologies', {
   color: text('color'),
 
   featured: boolean('featured').notNull().default(false),
+  rank: integer('rank').notNull().default(1),
 
   domainId: uuid('domainId'),
 })
