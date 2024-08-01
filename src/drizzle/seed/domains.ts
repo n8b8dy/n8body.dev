@@ -122,13 +122,15 @@ export const DOMAINS = [
   },
 ]
 ;(async function seed() {
-  console.log('Seeding Database with domains...')
+  console.info('Seeding Database with domains...')
 
   try {
-    for (const domain of DOMAINS) {
+    for (let i = 0; i < DOMAINS.length; i++) {
+      const domain = DOMAINS[i]
+
       const [createdDomain] = await db
         .insert(domains)
-        .values(domain)
+        .values({ ...domain, rank: i + 1 })
         .onConflictDoUpdate({
           target: domains.slug,
           set: {
@@ -136,14 +138,19 @@ export const DOMAINS = [
             backgroundColor: domain.backgroundColor,
             borderColor: domain.borderColor,
             featured: domain.featured,
+            rank: i + 1,
           },
         })
         .returning()
 
-      for (const technology of domain.technologies) {
-        await db
+      console.info('Created domain: ', domain)
+
+      for (let j = 0; j < domain.technologies.length; j++) {
+        const technology = domain.technologies[j]
+
+        const [createdTechnology] = await db
           .insert(technologies)
-          .values(technology)
+          .values({ ...technology, rank: j + 1 })
           .onConflictDoUpdate({
             target: technologies.slug,
             set: {
@@ -151,12 +158,15 @@ export const DOMAINS = [
               color: technology.color,
               featured: technology.featured,
               domainId: createdDomain.id,
+              rank: j + 1,
             },
-          })
+          }).returning()
+
+        console.info('Created technology: ', createdTechnology)
       }
     }
 
-    console.log('Database seeding with domains complete!')
+    console.info('Database seeding with domains complete!')
   } catch (error) {
     console.error('Error during seeding with technologies:', error)
   }
