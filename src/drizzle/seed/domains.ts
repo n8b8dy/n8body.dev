@@ -36,6 +36,7 @@ export const DOMAINS = [
       { slug: 'FRAMER_MOTION', name: 'Framer Motion', color: null, featured: true },
       { slug: 'GSAP', name: 'GSAP', color: null, featured: true },
       { slug: 'THREE_JS', name: 'Three.js', color: null, featured: false },
+      { slug: 'VITE', name: 'Vite', color: null, featured: true },
     ],
   },
   {
@@ -64,6 +65,7 @@ export const DOMAINS = [
       { slug: 'FIBER', name: 'Fiber', color: null, featured: true },
       { slug: 'GRAPHQL', name: 'GraphQL', color: null, featured: true },
       { slug: 'GRPC', name: 'gRPC', color: null, featured: true },
+      { slug: 'TRPC', name: 'tRPC', color: null, featured: true },
       { slug: 'KAFKA', name: 'Kafka', color: null, featured: true },
       { slug: 'RABBITMQ', name: 'RabbitMQ', color: null, featured: true },
     ],
@@ -93,6 +95,7 @@ export const DOMAINS = [
     technologies: [
       { slug: 'DOCKER', name: 'Docker', color: '#2496ED', featured: true },
       { slug: 'PODMAN', name: 'Podman', color: null, featured: true },
+      { slug: 'KUBERNETES', name: 'Kubernetes', color: null, featured: true },
       { slug: 'NGINX', name: 'Nginx', color: null, featured: true },
       { slug: 'HAPROXY', name: 'HAProxy', color: null, featured: true },
       { slug: 'JENKINS', name: 'Jenkins', color: null, featured: true },
@@ -150,7 +153,7 @@ export const DOMAINS = [
 
         const [createdTechnology] = await db
           .insert(technologies)
-          .values({ ...technology, rank: j + 1 })
+          .values({ ...technology, domainId: createdDomain.id, rank: j + 1 })
           .onConflictDoUpdate({
             target: technologies.slug,
             set: {
@@ -160,7 +163,8 @@ export const DOMAINS = [
               domainId: createdDomain.id,
               rank: j + 1,
             },
-          }).returning()
+          })
+          .returning()
 
         console.info('Created technology: ', createdTechnology)
       }
