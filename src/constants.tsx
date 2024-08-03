@@ -44,6 +44,9 @@ import { TanstackSVG } from '@/components/lib/svg/Tanstack'
 import { StyledComponentsSVG } from '@/components/lib/svg/StyledComponents'
 
 import { cn } from '@/utils/styles'
+import { KubernetesSVG } from '@/components/lib/svg/Kubernetes'
+import { ViteSVG } from '@/components/lib/svg/Vite'
+import { TrpcSVG } from '@/components/lib/svg/Trpc'
 
 export const TechnologiesIcons: Record<string, ReactNode> = {
   // Programming Languages
@@ -57,7 +60,11 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
   NEXTJS: <NextSVG />,
   REMIX: <RemixSVG />,
   TANSTACK: <TanstackSVG />,
-  REACT_ROUTER: <ReactRouterSVG className={cn('text-[#121212] dark:text-neutral-200', 'transform scale-75')}/>,
+  REACT_ROUTER: (
+    <ReactRouterSVG
+      className={cn('text-[#121212] dark:text-neutral-200', 'transform scale-75')}
+    />
+  ),
   REDUX: <ReduxSVG />,
   ZUSTAND: <ZustandSVG />,
   TAILWIND: <TailwindSVG />,
@@ -65,6 +72,7 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
   SHADCN_UI: <ShadcnSVG className={cn('text-[#121212] dark:text-neutral-200')} />,
   GSAP: <GsapSVG />,
   FRAMER_MOTION: <FramerMotionSVG className={cn('transform scale-50')} />,
+  VITE: <ViteSVG />,
 
   // Mobile
   REACT_NATIVE: <ReactSVG />,
@@ -75,24 +83,26 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
   DENO: <DenoSVG />,
   EXPRESS: <ExpressSVG />,
   NESTJS: <NestSVG />,
-  FIBER: <FiberSVG className={cn('text-[#333] dark:text-neutral-200')}/>,
+  FIBER: <FiberSVG className={cn('text-[#333] dark:text-neutral-200')} />,
   GIN: <GinSVG />,
   GRAPHQL: <GraphqlSVG />,
-  GRPC: <GrpcSVG/>,
+  GRPC: <GrpcSVG />,
+  TRPC: <TrpcSVG />,
   RABBITMQ: <RabbitSVG />,
-  KAFKA: <KafkaSVG className={cn('text-[#231f20] dark:text-neutral-200')}/>,
+  KAFKA: <KafkaSVG className={cn('text-[#231f20] dark:text-neutral-200')} />,
 
   // ORM & Databases
   POSTGRES: <PostgresSVG />,
   MONGODB: <MongoSVG />,
   PRISMA: <PrismaSVG />,
   DRIZZLE: <DrizzleSVG />,
-  KYSELY: <KyselySVG className={cn('transform scale-95')}/>,
-  GORM: <GormSVG/>,
+  KYSELY: <KyselySVG className={cn('transform scale-95')} />,
+  GORM: <GormSVG />,
 
   // DevOps
   DOCKER: <DockerSVG className={cn('transform scale-[1.5]')} />,
   PODMAN: <PodmanSVG />,
+  KUBERNETES: <KubernetesSVG />,
   JENKINS: <JenkinsSVG />,
   NGINX: <NginxSVG />,
   HAPROXY: <HAProxySVG />,
@@ -104,4 +114,7 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
   // Tools
   GIT: <GitSVG />,
   INTELLIJ_IDEA: <IntellijIDEA className={cn('transform scale-95')} />,
+
+  // Design
+  FIGMA: <></>
 } as const
