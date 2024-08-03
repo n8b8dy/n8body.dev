@@ -4,7 +4,8 @@ import type { RenderComponentProps } from 'masonic'
 import type { Technology } from '@/drizzle/schema/technology/technologies'
 import type { Domain } from '@/drizzle/schema/domain/domains'
 
-import { Masonry } from 'masonic'
+import dynamic from 'next/dynamic'
+import { Masonry as _Masonry } from 'masonic'
 
 import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
@@ -16,6 +17,10 @@ import { TechnologiesIcons } from '@/constants'
 export interface TechStackSectionProps {
   domains: Array<Domain & { technologies: Array<Technology> }>
 }
+
+const Masonry = dynamic(() => import('masonic').then(masonic => masonic.Masonry), {
+  ssr: false,
+}) as typeof _Masonry
 
 const MasonryDomain = ({
   data: { name, backgroundColor, borderColor, technologies },
