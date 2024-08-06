@@ -50,6 +50,13 @@
       "when": 1749339211137,
       "tag": "0006_add_ranks_to_technologies",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1749400116767,
+      "tag": "0007_add_light_colors_to_domains",
+      "breakpoints": true
     }
   ]
 }
