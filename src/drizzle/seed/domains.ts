@@ -8,6 +8,8 @@ export const DOMAINS = [
     slug: 'PROGRAMMING_LANGUAGES',
     backgroundColor: '#0F1B2B',
     borderColor: '#1C3A5F',
+    lightBackgroundColor: '#F4F8FC',
+    lightBorderColor: '#C3D9F2',
     featured: true,
     technologies: [
       { slug: 'JAVASCRIPT', name: 'JavaScript', color: '#F7DF1E', featured: true },
@@ -20,6 +22,8 @@ export const DOMAINS = [
     slug: 'FRONTEND',
     backgroundColor: '#1E1B29',
     borderColor: '#5A4E8C',
+    lightBackgroundColor: '#F7F5FB',
+    lightBorderColor: '#D7CFF0',
     featured: true,
     technologies: [
       { slug: 'REACT', name: 'React', color: '#61DAFB', featured: true },
@@ -44,6 +48,8 @@ export const DOMAINS = [
     slug: 'MOBILE',
     backgroundColor: '#1B2626',
     borderColor: '#3E5C5C',
+    lightBackgroundColor: '#F5FAFA',
+    lightBorderColor: '#C6E1E1',
     featured: true,
     technologies: [
       { slug: 'REACT_NATIVE', name: 'React Native', color: '#61DAFB', featured: true },
@@ -55,6 +61,8 @@ export const DOMAINS = [
     slug: 'BACKEND',
     backgroundColor: '#2A1F29',
     borderColor: '#6C3B56',
+    lightBackgroundColor: '#FAF5F8',
+    lightBorderColor: '#E2CADC',
     featured: true,
     technologies: [
       { slug: 'NODEJS', name: 'Node.js', color: '#8CC84B', featured: true },
@@ -75,6 +83,8 @@ export const DOMAINS = [
     slug: 'ORM_DATABASES',
     backgroundColor: '#1F2A24',
     borderColor: '#4C6B54',
+    lightBackgroundColor: '#F4FAF7',
+    lightBorderColor: '#C6E0D5',
     featured: true,
     technologies: [
       { slug: 'SQL', name: 'SQL', color: null, featured: true },
@@ -91,6 +101,8 @@ export const DOMAINS = [
     slug: 'DEVOPS',
     backgroundColor: '#142B2C',
     borderColor: '#3A6466',
+    lightBackgroundColor: '#F2FAFA',
+    lightBorderColor: '#BFE3E4',
     featured: true,
     technologies: [
       { slug: 'DOCKER', name: 'Docker', color: '#2496ED', featured: true },
@@ -106,6 +118,8 @@ export const DOMAINS = [
     slug: 'OPERATING_SYSTEMS',
     backgroundColor: '#2D2B1F',
     borderColor: '#6C6A43',
+    lightBackgroundColor: '#FAF9F3',
+    lightBorderColor: '#E1DFC3',
     featured: true,
     technologies: [
       { slug: 'ARCH', name: 'Arch Linux', color: '#1793D1', featured: true },
@@ -117,6 +131,8 @@ export const DOMAINS = [
     slug: 'TOOLS',
     backgroundColor: '#2B1F1F',
     borderColor: '#6D4545',
+    lightBackgroundColor: '#FBF6F6',
+    lightBorderColor: '#E4CFCF',
     featured: true,
     technologies: [
       { slug: 'GIT', name: 'Git', color: '#F03C2E', featured: true },
@@ -140,6 +156,8 @@ export const DOMAINS = [
             name: domain.name,
             backgroundColor: domain.backgroundColor,
             borderColor: domain.borderColor,
+            lightBackgroundColor: domain.lightBackgroundColor,
+            lightBorderColor: domain.lightBorderColor,
             featured: domain.featured,
             rank: i + 1,
           },

@@ -13,6 +13,8 @@ export const domains = pgTable('domains', {
   name: text('name').notNull().unique(),
   backgroundColor: text('background_color'),
   borderColor: text('border_color'),
+  lightBackgroundColor: text('light_background_color'),
+  lightBorderColor: text('light_border_color'),
 
   featured: boolean('featured').notNull().default(false),
   rank: integer('rank').notNull().default(1)
