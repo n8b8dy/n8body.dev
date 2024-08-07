@@ -5,6 +5,7 @@ import type { Technology } from '@/drizzle/schema/technology/technologies'
 import type { Domain } from '@/drizzle/schema/domain/domains'
 
 import dynamic from 'next/dynamic'
+import { useTheme } from 'next-themes'
 import { Masonry as _Masonry } from 'masonic'
 
 import { Section } from '@/components/layout/Section'
@@ -23,15 +24,28 @@ const Masonry = dynamic(() => import('masonic').then(masonic => masonic.Masonry)
 }) as typeof _Masonry
 
 const MasonryDomain = ({
-  data: { name, backgroundColor, borderColor, technologies },
+  data: {
+    name,
+    backgroundColor,
+    borderColor,
+    lightBackgroundColor,
+    lightBorderColor,
+    technologies,
+  },
 }: RenderComponentProps<TechStackSectionProps['domains'][number]>) => {
+  const { resolvedTheme } = useTheme()
+
   return (
     <fieldset
       style={{
-        borderColor: borderColor ? universalColorOpacity(borderColor, 0.2) : undefined,
-        backgroundColor: backgroundColor
-          ? universalColorOpacity(backgroundColor, 0.2)
-          : undefined,
+        backgroundColor:
+          resolvedTheme === 'dark'
+            ? universalColorOpacity(backgroundColor || '', 0.2)
+            : lightBackgroundColor || '',
+        borderColor:
+          resolvedTheme === 'dark'
+            ? universalColorOpacity(borderColor || '', 0.2)
+            : lightBorderColor || '',
       }}
       className={cn(
         'px-4 pt-2 pb-4',

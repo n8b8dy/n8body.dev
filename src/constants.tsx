@@ -58,7 +58,7 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
   // Frontend
   REACT: <ReactSVG />,
   NEXTJS: <NextSVG />,
-  REMIX: <RemixSVG />,
+  REMIX: <RemixSVG className={cn('text-[#121212] dark:text-neutral-200', 'transform scale-150')}/>,
   TANSTACK: <TanstackSVG />,
   REACT_ROUTER: (
     <ReactRouterSVG
@@ -76,7 +76,7 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
 
   // Mobile
   REACT_NATIVE: <ReactSVG />,
-  EXPO: <ExpoSVG className={cn('transform scale-[1.1]')} />,
+  EXPO: <ExpoSVG className={cn('transform scale-110 ')} />,
 
   // Backend
   NODEJS: <NodeSVG />,
@@ -100,7 +100,7 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
   GORM: <GormSVG />,
 
   // DevOps
-  DOCKER: <DockerSVG className={cn('transform scale-[1.5]')} />,
+  DOCKER: <DockerSVG className={cn('transform scale-150')} />,
   PODMAN: <PodmanSVG />,
   KUBERNETES: <KubernetesSVG />,
   JENKINS: <JenkinsSVG />,

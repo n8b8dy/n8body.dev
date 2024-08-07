@@ -2,49 +2,19 @@ import type { SVGProps } from '@/components/lib/svg/base'
 
 export const RemixSVG = (props: SVGProps) => {
   return (
-    <svg viewBox="0 0 539 601" fill="none" {...props}>
-      <g fill="#E8F2FF" filter="url(#a)">
-        <path
-          fillRule="evenodd"
-          d="M456.946 428.768c4.255 54.65 4.255 80.268 4.255 108.232H334.756c0-6.091.109-11.663.219-17.313.342-17.564.699-35.88-2.147-72.868-3.761-54.152-27.08-66.185-69.957-66.185H64v-98.525h204.889c54.16 0 81.241-16.476 81.241-60.098 0-38.357-27.081-61.601-81.241-61.601H64V64h227.456C414.069 64 475 121.912 475 214.42c0 69.193-42.877 114.319-100.799 121.84 48.895 9.777 77.48 37.605 82.745 92.508Z"
-          clipRule="evenodd"
-        />
-        <path d="M64 537v-73.447h133.697c22.332 0 27.181 16.563 27.181 26.441V537H64Z" />
-      </g>
-      <defs>
-        <filter
-          id="a"
-          width={539}
-          height={601}
-          x={0}
-          y={0}
-          colorInterpolationFilters="sRGB"
-          filterUnits="userSpaceOnUse"
-        >
-          <feFlood floodOpacity={0} result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            result="hardAlpha"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          />
-          <feOffset />
-          <feGaussianBlur stdDeviation={28} />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix values="0 0 0 0 0.223529 0 0 0 0 0.572549 0 0 0 0 1 0 0 0 1 0" />
-          <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_3_106" />
-          <feColorMatrix
-            in="SourceAlpha"
-            result="hardAlpha"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          />
-          <feOffset />
-          <feGaussianBlur stdDeviation={32} />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix values="0 0 0 0 0.223529 0 0 0 0 0.572549 0 0 0 0 1 0 0 0 0.9 0" />
-          <feBlend in2="effect1_dropShadow_3_106" result="effect2_dropShadow_3_106" />
-          <feBlend in="SourceGraphic" in2="effect2_dropShadow_3_106" result="shape" />
-        </filter>
-      </defs>
+    <svg viewBox="0 0 800 800" {...props}>
+      <path
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth={4}
+        d="m589.94 527.613-.001-.018-.002-.018c-2.662-27.764-11.246-48.9-25.534-64.343-12.347-13.346-28.818-22.294-49.031-27.668C569.234 424.272 608 379.587 608 313.42c0-46.717-15.403-84.928-46.495-111.423C530.461 175.543 484.047 161 422.456 161H193v100.41h206.889c26.834 0 46.64 5.764 59.697 15.991 12.982 10.169 19.544 24.946 19.544 43.61 0 21.361-6.599 35.679-19.465 44.774-13.023 9.206-32.816 13.324-59.776 13.324H193v102.525h200.871c21.345 0 37.272 3.018 48.362 12.318 11.045 9.262 17.734 25.143 19.6 52.005l.001.008v.007c2.839 36.892 2.483 55.139 2.141 72.661v.025c-.11 5.645-.219 11.232-.219 17.342v2h130.445v-2c0-27.995 0-53.669-4.261-108.387Z"
+      />
+      <path
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth={4}
+        d="M193 636v2h164.878v-49.006c0-5.207-1.269-12.288-5.612-18.12-4.419-5.933-11.838-10.321-23.569-10.321H193V636Z"
+      />
     </svg>
   )
 }
