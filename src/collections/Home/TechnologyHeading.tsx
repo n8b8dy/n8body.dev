@@ -8,7 +8,7 @@ export interface TechnologyHeadingProps {}
 
 export const TechnologyHeading = ({}: TechnologyHeadingProps) => {
   return (
-    <Heading tag="h4" className={cn('flex flex-col min-[350px]:flex-row')}>
+    <Heading tag="h2" className={cn('flex flex-col min-[350px]:flex-row')}>
       Actively coding in&nbsp;
       <TypeAnimation
         speed={2}
