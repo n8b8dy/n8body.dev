@@ -57,6 +57,13 @@
       "when": 1749400116767,
       "tag": "0007_add_light_colors_to_domains",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1751128504993,
+      "tag": "0008_create_experiences",
+      "breakpoints": true
     }
   ]
 }
