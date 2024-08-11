@@ -20,6 +20,7 @@
     "@prisma/client": "5.14.0",
     "argon2": "^0.41.1",
     "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.32.2",
     "jose": "^6.0.10",
