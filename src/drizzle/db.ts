@@ -15,6 +15,8 @@ import * as domainsSchema from '@/drizzle/schema/domain/domains'
 import * as technologiesSchema from '@/drizzle/schema/technology/technologies'
 import * as tagsSchema from '@/drizzle/schema/tag/tags'
 
+import * as experiencesSchema from '@/drizzle/schema/experience/experience'
+
 const pool = new Pool({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
@@ -38,5 +40,7 @@ export const db = drizzle(pool, {
     ...domainsSchema,
     ...technologiesSchema,
     ...tagsSchema,
+
+    ...experiencesSchema,
   },
 })
