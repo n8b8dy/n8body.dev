@@ -28,7 +28,7 @@ export const DOMAINS = [
     technologies: [
       { slug: 'REACT', name: 'React', color: '#61DAFB', featured: true },
       { slug: 'NEXTJS', name: 'Next.js', color: null, featured: true },
-      { slug: 'ANGULAR', name: 'Angular', color: '#DD0031', featured: false },
+      { slug: 'ANGULAR', name: 'Angular', color: '#DD0031', featured: true },
       { slug: 'REMIX', name: 'Remix', color: null, featured: true },
       { slug: 'REACT_ROUTER', name: 'React Router', color: null, featured: true },
       { slug: 'TANSTACK', name: 'TanStack', color: null, featured: true },

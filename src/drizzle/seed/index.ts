@@ -5,6 +5,7 @@
     await import('./domains')
     await import('./tags')
     await import('./projects')
+    await import('./experiences')
 
     console.log('Database seeding complete!')
   } catch (error) {

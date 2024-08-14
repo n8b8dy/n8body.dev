@@ -14,38 +14,45 @@ import { cn } from '@/utils/styles'
 import { db } from '@/drizzle/db'
 import { domains } from '@/drizzle/schema/domain/domains'
 import { technologies } from '@/drizzle/schema/technology/technologies'
+import { projects } from '@/drizzle/schema/project/projects'
+import { experiences } from '@/drizzle/schema/experience/experience'
 
 async function getData() {
-  const domainsData = await db.query.domains.findMany({
-    where: eq(domains.featured, true),
-    orderBy: [asc(domains.rank)],
-    with: {
-      technologies: { where: eq(technologies.featured, true), orderBy: [asc(technologies.rank)] },
-    },
-  })
-
-  const projectsData = (
-    await db.query.projects.findMany({
-      limit: 5,
-      orderBy: [desc(technologies.updatedAt)],
+  const [domainsData, projectsData, experiencesData] = await Promise.all([
+    db.query.domains.findMany({
+      where: eq(domains.featured, true),
+      orderBy: [asc(domains.rank)],
       with: {
-        projectsToTechnologies: { with: { technology: true } },
-        projectsToTags: { with: { tag: true } },
+        technologies: {
+          where: eq(technologies.featured, true),
+          orderBy: [asc(technologies.rank)],
+        },
       },
-    })
-  ).map(({ projectsToTechnologies, projectsToTags, ...project }) => ({
-    ...project,
-    tags: projectsToTags.map(projectToTag => projectToTag.tag),
-    technologies: projectsToTechnologies.map(
-      projectToTechnology => projectToTechnology.technology,
-    ),
-  }))
+    }),
+    db.query.projects
+      .findMany({
+        limit: 5,
+        orderBy: [desc(projects.updatedAt)],
+        with: {
+          projectsToTechnologies: { with: { technology: true } },
+          projectsToTags: { with: { tag: true } },
+        },
+      })
+      .then(projects =>
+        projects.map(({ projectsToTechnologies, projectsToTags, ...project }) => ({
+          ...project,
+          tags: projectsToTags.map(pt => pt.tag),
+          technologies: projectsToTechnologies.map(pt => pt.technology),
+        })),
+      ),
+    db.query.experiences.findMany({ orderBy: [desc(experiences.startDate)] }),
+  ])
 
-  return { domains: domainsData, projects: projectsData }
+  return { domains: domainsData, projects: projectsData, experiences: experiencesData }
 }
 
 export default async function Home() {
-  const { domains, projects } = await getData()
+  const { domains, projects, experiences } = await getData()
 
   return (
     <Fragment>
@@ -63,7 +70,7 @@ export default async function Home() {
       <AboutMeSection />
       <TechStackSection domains={domains} />
       <ProjectsSection projects={projects} />
-      <ExperienceSection />
+      <ExperienceSection experiences={experiences} />
 
       <Section>
         <div className={cn('py-16 flex flex-col items-center gap-2')}>
