@@ -19,6 +19,7 @@ type TagVariants = keyof typeof HeadingClassnames
 
 export interface HeadingProps extends ComponentPropsWithoutRef<TagVariants> {
   tag: TagVariants
+  overrideTagVariant?: TagVariants
   terminal?: boolean
   href?: string
 }
@@ -26,6 +27,7 @@ export interface HeadingProps extends ComponentPropsWithoutRef<TagVariants> {
 export const Heading = ({
   children,
   tag,
+  overrideTagVariant,
   terminal = false,
   className,
   href,
@@ -35,7 +37,7 @@ export const Heading = ({
     tag,
     {
       className: cn(
-        HeadingClassnames[tag],
+        HeadingClassnames[overrideTagVariant || tag],
         terminal && [
           'before:content-["$_"] before:text-transparent before:bg-clip-text',
           'before:animate-background-shine before:bg-gradient-FVW',

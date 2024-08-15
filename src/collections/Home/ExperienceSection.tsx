@@ -4,7 +4,7 @@ import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
 import { Paragraph } from '@/components/typography/Paragraph'
 
-import { ExperienceCard } from '@/components/cards/ExperienceCard'
+import { ExperienceCard, MobileExperienceCard } from '@/components/cards/ExperienceCard'
 import { cn } from '@/utils/styles'
 
 export interface ExperienceSectionProps {
@@ -18,18 +18,24 @@ export const ExperienceSection = ({ experiences }: ExperienceSectionProps) => {
         Experience
       </Heading>
 
-      <Paragraph className={cn('pb-2 text-center text-nowrap')}>Present</Paragraph>
+      <Paragraph className={cn('pb-2 text-center text-nowrap hidden sm:block')}>
+        Present
+      </Paragraph>
 
-      <div className={cn('relative flex flex-col w-full h-full')}>
+      <div className={cn('relative flex flex-col w-full h-full gap-8 sm:gap-0')}>
         <div
           className={cn(
-            'absolute w-1 h-full left-1/2 transform -translate-x-1/2',
+            'absolute w-1 h-full',
             'bg-neutral-400 dark:bg-neutral-700 rounded-full',
+            'sm:left-1/2 sm:transform sm:-translate-x-1/2',
           )}
         ></div>
 
         {experiences.map((experience, index) => (
-          <ExperienceCard key={experience.id} index={index} {...experience} />
+          <>
+            <ExperienceCard key={experience.id} index={index} {...experience} />
+            <MobileExperienceCard key={experience.id} index={index} {...experience} />
+          </>
         ))}
       </div>
     </Section>
