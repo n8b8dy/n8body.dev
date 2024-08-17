@@ -17,7 +17,7 @@ export const domains = pgTable('domains', {
   lightBorderColor: text('light_border_color'),
 
   featured: boolean('featured').notNull().default(false),
-  rank: integer('rank').notNull().default(1)
+  rank: integer('rank').notNull().default(1),
 })
 
 export const domainsRelations = relations(domains, ({ many }) => ({
