@@ -12,9 +12,9 @@ export const DOMAINS = [
     lightBorderColor: '#C3D9F2',
     featured: true,
     technologies: [
-      { slug: 'JAVASCRIPT', name: 'JavaScript', color: '#F7DF1E', featured: true },
-      { slug: 'TYPESCRIPT', name: 'TypeScript', color: '#3178C6', featured: true },
-      { slug: 'GOLANG', name: 'Go', color: '#00ADD8', featured: true },
+      { slug: 'JAVASCRIPT', name: 'JavaScript', color: '#F7DF1E', featured: true, showOff: false },
+      { slug: 'TYPESCRIPT', name: 'TypeScript', color: '#3178C6', featured: true, showOff: false },
+      { slug: 'GOLANG', name: 'Go', color: '#00ADD8', featured: true, showOff: false },
     ],
   },
   {
@@ -26,21 +26,21 @@ export const DOMAINS = [
     lightBorderColor: '#D7CFF0',
     featured: true,
     technologies: [
-      { slug: 'REACT', name: 'React', color: '#61DAFB', featured: true },
-      { slug: 'NEXTJS', name: 'Next.js', color: null, featured: true },
-      { slug: 'ANGULAR', name: 'Angular', color: '#DD0031', featured: true },
-      { slug: 'REMIX', name: 'Remix', color: null, featured: true },
-      { slug: 'REACT_ROUTER', name: 'React Router', color: null, featured: true },
-      { slug: 'TANSTACK', name: 'TanStack', color: null, featured: true },
-      { slug: 'REDUX', name: 'Redux', color: null, featured: true },
-      { slug: 'ZUSTAND', name: 'Zustand', color: null, featured: true },
-      { slug: 'TAILWIND', name: 'Tailwind CSS', color: '#38B2AC', featured: true },
-      { slug: 'SHADCN_UI', name: 'shadcn/ui', color: null, featured: true },
-      { slug: 'STYLED_COMPONENTS', name: 'Styled Components', color: null, featured: true },
-      { slug: 'FRAMER_MOTION', name: 'Framer Motion', color: null, featured: true },
-      { slug: 'GSAP', name: 'GSAP', color: null, featured: true },
-      { slug: 'THREE_JS', name: 'Three.js', color: null, featured: false },
-      { slug: 'VITE', name: 'Vite', color: null, featured: true },
+      { slug: 'REACT', name: 'React', color: '#61DAFB', featured: true, showOff: false },
+      { slug: 'NEXTJS', name: 'Next.js', color: null, featured: true, showOff: false },
+      { slug: 'ANGULAR', name: 'Angular', color: '#DD0031', featured: false, showOff: false },
+      { slug: 'REMIX', name: 'Remix', color: null, featured: true, showOff: false },
+      { slug: 'REACT_ROUTER', name: 'React Router', color: null, featured: true, showOff: true },
+      { slug: 'TANSTACK', name: 'TanStack', color: null, featured: true, showOff: true },
+      { slug: 'REDUX', name: 'Redux', color: null, featured: true, showOff: true },
+      { slug: 'ZUSTAND', name: 'Zustand', color: null, featured: true, showOff: true },
+      { slug: 'TAILWIND', name: 'Tailwind CSS', color: '#38B2AC', featured: true, showOff: true },
+      { slug: 'SHADCN_UI', name: 'shadcn/ui', color: null, featured: true, showOff: true },
+      { slug: 'STYLED_COMPONENTS', name: 'Styled Components', color: null, featured: true, showOff: true },
+      { slug: 'FRAMER_MOTION', name: 'Framer Motion', color: null, featured: true, showOff: true },
+      { slug: 'GSAP', name: 'GSAP', color: null, featured: true, showOff: true },
+      { slug: 'THREE_JS', name: 'Three.js', color: null, featured: false, showOff: true },
+      { slug: 'VITE', name: 'Vite', color: null, featured: true, showOff: true },
     ],
   },
   {
@@ -52,8 +52,8 @@ export const DOMAINS = [
     lightBorderColor: '#C6E1E1',
     featured: true,
     technologies: [
-      { slug: 'REACT_NATIVE', name: 'React Native', color: '#61DAFB', featured: true },
-      { slug: 'EXPO', name: 'Expo', color: null, featured: true },
+      { slug: 'REACT_NATIVE', name: 'React Native', color: '#61DAFB', featured: true, showOff: false },
+      { slug: 'EXPO', name: 'Expo', color: null, featured: true, showOff: false },
     ],
   },
   {
@@ -65,17 +65,18 @@ export const DOMAINS = [
     lightBorderColor: '#E2CADC',
     featured: true,
     technologies: [
-      { slug: 'NODEJS', name: 'Node.js', color: '#8CC84B', featured: true },
-      { slug: 'EXPRESS', name: 'Express', color: null, featured: true },
-      { slug: 'NESTJS', name: 'NestJS', color: '#E0234E', featured: true },
-      { slug: 'DENO', name: 'Deno', color: null, featured: true },
-      { slug: 'GIN', name: 'Gin', color: null, featured: true },
-      { slug: 'FIBER', name: 'Fiber', color: null, featured: true },
-      { slug: 'GRAPHQL', name: 'GraphQL', color: null, featured: true },
-      { slug: 'GRPC', name: 'gRPC', color: null, featured: true },
-      { slug: 'TRPC', name: 'tRPC', color: null, featured: true },
-      { slug: 'KAFKA', name: 'Kafka', color: null, featured: true },
-      { slug: 'RABBITMQ', name: 'RabbitMQ', color: null, featured: true },
+      { slug: 'NODEJS', name: 'Node.js', color: '#8CC84B', featured: true, showOff: false },
+      { slug: 'EXPRESS', name: 'Express', color: null, featured: true, showOff: false },
+      { slug: 'NESTJS', name: 'NestJS', color: '#E0234E', featured: true, showOff: false },
+      { slug: 'DENO', name: 'Deno', color: null, featured: true, showOff: true },
+      { slug: 'GIN', name: 'Gin', color: null, featured: true, showOff: true },
+      { slug: 'FIBER', name: 'Fiber', color: null, featured: true, showOff: true },
+      { slug: 'REST', name: 'REST API', color: null, featured: true, showOff: true },
+      { slug: 'GRAPHQL', name: 'GraphQL', color: null, featured: true, showOff: true },
+      { slug: 'GRPC', name: 'gRPC', color: null, featured: true, showOff: true },
+      { slug: 'TRPC', name: 'tRPC', color: null, featured: true, showOff: true },
+      { slug: 'KAFKA', name: 'Kafka', color: null, featured: true, showOff: false },
+      { slug: 'RABBITMQ', name: 'RabbitMQ', color: null, featured: true, showOff: false },
     ],
   },
   {
@@ -87,13 +88,13 @@ export const DOMAINS = [
     lightBorderColor: '#C6E0D5',
     featured: true,
     technologies: [
-      { slug: 'SQL', name: 'SQL', color: null, featured: true },
-      { slug: 'POSTGRES', name: 'PostgreSQL', color: '#336791', featured: true },
-      { slug: 'MONGODB', name: 'MongoDB', color: null, featured: true },
-      { slug: 'PRISMA', name: 'Prisma', color: '#0C344B', featured: true },
-      { slug: 'DRIZZLE', name: 'Drizzle ORM', color: '#00897B', featured: true },
-      { slug: 'KYSELY', name: 'Kysely', color: null, featured: true },
-      { slug: 'GORM', name: 'GORM', color: null, featured: true },
+      { slug: 'SQL', name: 'SQL', color: null, featured: true, showOff: false },
+      { slug: 'POSTGRES', name: 'PostgreSQL', color: '#336791', featured: true, showOff: false },
+      { slug: 'MONGODB', name: 'MongoDB', color: null, featured: true, showOff: false },
+      { slug: 'PRISMA', name: 'Prisma', color: '#0C344B', featured: true, showOff: true },
+      { slug: 'DRIZZLE', name: 'Drizzle ORM', color: '#00897B', featured: true, showOff: true },
+      { slug: 'KYSELY', name: 'Kysely', color: null, featured: true, showOff: true },
+      { slug: 'GORM', name: 'GORM', color: null, featured: true, showOff: true },
     ],
   },
   {
@@ -105,12 +106,12 @@ export const DOMAINS = [
     lightBorderColor: '#BFE3E4',
     featured: true,
     technologies: [
-      { slug: 'DOCKER', name: 'Docker', color: '#2496ED', featured: true },
-      { slug: 'PODMAN', name: 'Podman', color: null, featured: true },
-      { slug: 'KUBERNETES', name: 'Kubernetes', color: null, featured: true },
-      { slug: 'NGINX', name: 'Nginx', color: null, featured: true },
-      { slug: 'HAPROXY', name: 'HAProxy', color: null, featured: true },
-      { slug: 'JENKINS', name: 'Jenkins', color: null, featured: true },
+      { slug: 'DOCKER', name: 'Docker', color: '#2496ED', featured: true, showOff: false },
+      { slug: 'PODMAN', name: 'Podman', color: null, featured: true, showOff: false },
+      { slug: 'KUBERNETES', name: 'Kubernetes', color: null, featured: true, showOff: false },
+      { slug: 'NGINX', name: 'Nginx', color: null, featured: true, showOff: false },
+      { slug: 'HAPROXY', name: 'HAProxy', color: null, featured: true, showOff: false },
+      { slug: 'JENKINS', name: 'Jenkins', color: null, featured: true, showOff: false },
     ],
   },
   {
@@ -122,8 +123,8 @@ export const DOMAINS = [
     lightBorderColor: '#E1DFC3',
     featured: true,
     technologies: [
-      { slug: 'ARCH', name: 'Arch Linux', color: '#1793D1', featured: true },
-      { slug: 'FEDORA', name: 'Fedora Linux', color: null, featured: true },
+      { slug: 'ARCH', name: 'Arch Linux', color: '#1793D1', featured: true, showOff: false },
+      { slug: 'FEDORA', name: 'Fedora Linux', color: null, featured: true, showOff: false },
     ],
   },
   {
@@ -135,8 +136,8 @@ export const DOMAINS = [
     lightBorderColor: '#E4CFCF',
     featured: true,
     technologies: [
-      { slug: 'GIT', name: 'Git', color: '#F03C2E', featured: true },
-      { slug: 'INTELLIJ_IDEA', name: 'IntelliJ IDEA', color: null, featured: true },
+      { slug: 'GIT', name: 'Git', color: '#F03C2E', featured: true, showOff: false },
+      { slug: 'INTELLIJ_IDEA', name: 'IntelliJ IDEA', color: null, featured: true, showOff: true },
     ],
   },
 ]
@@ -178,13 +179,14 @@ export const DOMAINS = [
               name: technology.name,
               color: technology.color,
               featured: technology.featured,
+              showOff: technology.showOff,
               domainId: createdDomain.id,
               rank: j + 1,
             },
           })
           .returning()
 
-        console.info('Created technology: ', createdTechnology)
+        console.info('Created or updated technology: ', createdTechnology)
       }
     }
 
