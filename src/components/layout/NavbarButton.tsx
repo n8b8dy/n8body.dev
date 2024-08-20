@@ -19,6 +19,7 @@ export const NavbarButton = ({ href, text }: NavbarButtonProps) => {
         'px-3 py-2 flex items-center rounded text-lg transition',
         'bg-action-button',
       )}
+      target={href.startsWith("/") ? "_self" : "_blank"}
     >
       <span
         className={cn(

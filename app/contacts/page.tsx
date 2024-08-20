@@ -36,7 +36,7 @@ export default function Contacts() {
   return (
     <Section
       className={cn(
-        'max-w-6xl my-auto py-8 justify-center items-stretch lg:items-center lg:flex-row lg:gap-8',
+        'max-w-6xl min-h-[522px] my-auto py-8 justify-center items-stretch lg:flex-row lg:gap-8',
       )}
     >
       <div className={cn('mx-auto lg:mx-0 px-2 py-4 w-full max-w-md')}>
