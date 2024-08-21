@@ -8,6 +8,7 @@ import { useEffect, useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useTheme } from 'next-themes'
 import { Masonry as _Masonry } from 'masonic'
+import { Tooltip } from 'react-tooltip'
 
 import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
@@ -16,6 +17,8 @@ import { Toggle } from '@/components/inputs/Toggle'
 import { cn, universalColorOpacity } from '@/utils/styles'
 
 import { TechnologiesIcons } from '@/constants'
+import { IoInformationCircleSharp } from 'react-icons/io5'
+import { InfoBadge } from '@/components/common/InfoBadge'
 
 export interface TechStackSectionProps {
   domains: Array<Domain & { technologies: Array<Technology> }>
@@ -102,6 +105,13 @@ export const TechStackSection = ({ domains }: TechStackSectionProps) => {
           Tech Stack
         </Heading>
         <div className={cn('flex gap-2 items-center')}>
+          <InfoBadge>
+            <span>
+              Show off mode enables rendering of all the little technologies that are too minor
+              to be taken seriously, but I&apos;ve still seen them in job postings.
+            </span>
+          </InfoBadge>
+
           <Heading tag="h6" className={cn('opacity-60 font-normal')}>
             Show off mode
           </Heading>
