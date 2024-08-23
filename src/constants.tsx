@@ -42,12 +42,12 @@ import { ShadcnSVG } from '@/components/lib/svg/Shadcn'
 import { FramerMotionSVG } from '@/components/lib/svg/FramerMotion'
 import { TanstackSVG } from '@/components/lib/svg/Tanstack'
 import { StyledComponentsSVG } from '@/components/lib/svg/StyledComponents'
-
-import { cn } from '@/utils/styles'
 import { KubernetesSVG } from '@/components/lib/svg/Kubernetes'
 import { ViteSVG } from '@/components/lib/svg/Vite'
 import { TrpcSVG } from '@/components/lib/svg/Trpc'
 import { Rest } from '@/components/lib/svg/Rest'
+
+import { cn } from '@/utils/styles'
 
 export const TechnologiesIcons: Record<string, ReactNode> = {
   // Programming Languages
@@ -59,7 +59,9 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
   // Frontend
   REACT: <ReactSVG />,
   NEXTJS: <NextSVG />,
-  REMIX: <RemixSVG className={cn('text-[#121212] dark:text-neutral-200', 'transform scale-150')}/>,
+  REMIX: (
+    <RemixSVG className={cn('text-[#121212] dark:text-neutral-200', 'transform scale-150')} />
+  ),
   TANSTACK: <TanstackSVG />,
   REACT_ROUTER: (
     <ReactRouterSVG
@@ -72,7 +74,7 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
   STYLED_COMPONENTS: <StyledComponentsSVG />,
   SHADCN_UI: <ShadcnSVG className={cn('text-[#121212] dark:text-neutral-200')} />,
   GSAP: <GsapSVG />,
-  FRAMER_MOTION: <FramerMotionSVG className={cn('transform scale-50')} />,
+  FRAMER_MOTION: <FramerMotionSVG />,
   VITE: <ViteSVG />,
 
   // Mobile
@@ -86,7 +88,7 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
   NESTJS: <NestSVG />,
   FIBER: <FiberSVG className={cn('text-[#333] dark:text-neutral-200')} />,
   GIN: <GinSVG />,
-  REST: <Rest />,
+  REST: <Rest className={cn('text-[#333] dark:text-neutral-200')} />,
   GRAPHQL: <GraphqlSVG />,
   GRPC: <GrpcSVG />,
   TRPC: <TrpcSVG />,
@@ -118,5 +120,5 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
   INTELLIJ_IDEA: <IntellijIDEA className={cn('transform scale-95')} />,
 
   // Design
-  FIGMA: <></>
+  FIGMA: <></>,
 } as const
