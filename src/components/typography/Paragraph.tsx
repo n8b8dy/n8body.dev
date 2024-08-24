@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
+
 import { cn } from '@/utils/styles'
 
 export interface ParagraphProps extends ComponentPropsWithoutRef<'p'> {}

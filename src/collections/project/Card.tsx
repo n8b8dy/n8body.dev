@@ -14,7 +14,7 @@ export interface ProjectCardProps extends Project {
   technologies: Array<Technology>
 }
 
-export const ProjectCard = memo(
+export const Card = memo(
   ({ slug, title, description, tags, technologies }: ProjectCardProps) => {
     return (
       <div
@@ -49,4 +49,4 @@ export const ProjectCard = memo(
     )
   },
 )
-ProjectCard.displayName = 'ProjectCard'
+Card.displayName = 'Card'
