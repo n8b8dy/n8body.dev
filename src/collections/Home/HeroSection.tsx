@@ -15,7 +15,7 @@ export const HeroSection = ({}: HeroSectionProps) => {
         <span className={cn('inline min-[500px]:hidden')}> Sh.</span>
       </Heading>
       <div className={cn('pl-1')}>
-        <Heading tag="h2">Full-Stack Software Engineer</Heading>
+        <Heading tag="h2">Full-stack & Mobile Software&nbsp;Engineer</Heading>
         <TechnologyHeading />
       </div>
     </Section>
