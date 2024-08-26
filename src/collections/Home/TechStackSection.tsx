@@ -8,7 +8,6 @@ import { useEffect, useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useTheme } from 'next-themes'
 import { Masonry as _Masonry } from 'masonic'
-import { Tooltip } from 'react-tooltip'
 
 import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
@@ -17,7 +16,6 @@ import { Toggle } from '@/components/inputs/Toggle'
 import { cn, universalColorOpacity } from '@/utils/styles'
 
 import { TechnologiesIcons } from '@/constants'
-import { IoInformationCircleSharp } from 'react-icons/io5'
 import { InfoBadge } from '@/components/common/InfoBadge'
 
 export interface TechStackSectionProps {
