@@ -1,9 +1,9 @@
+import Link from 'next/link'
 import Markdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import { cn } from '@/utils/styles'
-import Link from 'next/link'
 
 export interface MarkdownCompilerProps {
   content: string

@@ -1,11 +1,14 @@
 import 'server-only'
 
+import type { SessionInsert } from '@/drizzle/schema/session/sessions'
+
 import { eq } from 'drizzle-orm'
 import { cookies } from 'next/headers'
 
-import { db } from '@/drizzle/db'
-import { SessionInsert, sessions } from '@/drizzle/schema/session/sessions'
 import { decryptSession, encryptSession } from '@/lib/crypto'
+
+import { db } from '@/drizzle/db'
+import { sessions } from '@/drizzle/schema/session/sessions'
 
 export const SESSION_COOKIE_NAME = 'session'
 export const TTL = 7 * 24 * 60 * 60 * 1000
@@ -18,9 +21,7 @@ export async function createSession(data: Pick<SessionInsert, 'userId'>) {
     .values({ ...data, expiresAt })
     .returning()
 
-  const encryptedSession = await encryptSession({
-    id: dbSession.id,
-  })
+  const encryptedSession = await encryptSession({ id: dbSession.id })
 
   cookies().set(SESSION_COOKIE_NAME, encryptedSession, {
     httpOnly: true,

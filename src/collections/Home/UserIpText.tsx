@@ -1,7 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+
 import { Bold } from '@/components/typography/Bold'
+
 import { cn } from '@/utils/styles'
 
 export interface UserIpTextProps {
@@ -27,11 +29,7 @@ export const UserIpText = ({ endpoint }: UserIpTextProps) => {
       ></span>
     )
 
-  if (ip === 'username') return (
-    <span>{ip}</span>
-  )
+  if (ip === 'username') return <span>{ip}</span>
 
-  return (
-    <Bold className={cn('bg-clip-text text-transparent bg-gradient-FVW')}>{ip}</Bold>
-  )
+  return <Bold className={cn('bg-clip-text text-transparent bg-gradient-FVW')}>{ip}</Bold>
 }

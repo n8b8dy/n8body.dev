@@ -17,5 +17,6 @@
   "htmlWhitespaceSensitivity": "strict",
   "endOfLine": "lf",
   "embeddedLanguageFormatting": "auto",
-  "singleAttributePerLine": false
+  "singleAttributePerLine": false,
+  "tailwindFunctions": ["cn"]
 }

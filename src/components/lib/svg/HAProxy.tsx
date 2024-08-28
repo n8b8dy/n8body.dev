@@ -2,16 +2,8 @@ import type { SVGProps } from '@/components/lib/svg/base'
 
 export const HAProxySVG = (props: SVGProps) => {
   return (
-    <svg
-      viewBox="0 0 64 64"
-      {...props}
-    >
-      <g
-        fill="none"
-        style={{
-          strokeMiterlimit: 10,
-        }}
-      >
+    <svg viewBox="0 0 64 64" {...props}>
+      <g fill="none" style={{ strokeMiterlimit: 10 }}>
         <g stroke="#284a6a">
           <path strokeWidth={0.26} d="m31.973 23.69-6.65-7.518" />
           <path strokeWidth={0.13} d="m11 17.908 5.205 7.6" />

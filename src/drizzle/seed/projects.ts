@@ -2,10 +2,10 @@ import { eq, inArray } from 'drizzle-orm'
 
 import { db } from '@/drizzle/db'
 import { projects } from '@/drizzle/schema/project/projects'
-import { projectsToTechnologies } from '@/drizzle/schema/project/projectsToTechnologies'
 import { projectsToTags } from '@/drizzle/schema/project/projectsToTags'
-import { technologies } from '@/drizzle/schema/technology/technologies'
+import { projectsToTechnologies } from '@/drizzle/schema/project/projectsToTechnologies'
 import { tags } from '@/drizzle/schema/tag/tags'
+import { technologies } from '@/drizzle/schema/technology/technologies'
 
 ;(async function seed() {
   console.log('Seeding Database with projects...')

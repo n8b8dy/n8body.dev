@@ -3,8 +3,8 @@ import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 
-import { cn } from '@/utils/styles'
 import { interleave } from '@/utils/arrays'
+import { cn } from '@/utils/styles'
 
 export interface BreadCrumbsProps {
   breadcrumbs: Array<BreadCrumbProps>

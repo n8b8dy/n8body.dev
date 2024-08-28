@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { signIn, signOut, useSession } from 'next-auth/react'
-import { PiUserCircleLight } from 'react-icons/pi'
 import Image from 'next/image'
+import { signIn, signOut, useSession } from 'next-auth/react'
+import { useEffect, useState } from 'react'
+import { PiUserCircleLight } from 'react-icons/pi'
 
 import { cn } from '@/utils/styles'
 

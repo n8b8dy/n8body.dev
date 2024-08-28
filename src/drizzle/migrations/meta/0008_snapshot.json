@@ -35,18 +35,8 @@
           "primaryKey": false,
           "notNull": false
         },
-        "slug": {
-          "name": "slug",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
+        "slug": { "name": "slug", "type": "text", "primaryKey": false, "notNull": true },
+        "name": { "name": "name", "type": "text", "primaryKey": false, "notNull": true },
         "background_color": {
           "name": "background_color",
           "type": "text",
@@ -93,16 +83,12 @@
         "domains_slug_unique": {
           "name": "domains_slug_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         },
         "domains_name_unique": {
           "name": "domains_name_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "name"
-          ]
+          "columns": ["name"]
         }
       }
     },
@@ -204,24 +190,9 @@
           "primaryKey": false,
           "notNull": false
         },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "email": {
-          "name": "email",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "message": {
-          "name": "message",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        }
+        "name": { "name": "name", "type": "text", "primaryKey": false, "notNull": true },
+        "email": { "name": "email", "type": "text", "primaryKey": false, "notNull": true },
+        "message": { "name": "message", "type": "text", "primaryKey": false, "notNull": true }
       },
       "indexes": {},
       "foreignKeys": {},
@@ -259,30 +230,15 @@
           "primaryKey": false,
           "notNull": false
         },
-        "slug": {
-          "name": "slug",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "title": {
-          "name": "title",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
+        "slug": { "name": "slug", "type": "text", "primaryKey": false, "notNull": true },
+        "title": { "name": "title", "type": "text", "primaryKey": false, "notNull": true },
         "description": {
           "name": "description",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "link": {
-          "name": "link",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
+        "link": { "name": "link", "type": "text", "primaryKey": false, "notNull": false },
         "repository": {
           "name": "repository",
           "type": "text",
@@ -304,9 +260,7 @@
         "projects_slug_unique": {
           "name": "projects_slug_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         }
       }
     },
@@ -320,12 +274,7 @@
           "primaryKey": false,
           "notNull": true
         },
-        "tag_id": {
-          "name": "tag_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        }
+        "tag_id": { "name": "tag_id", "type": "uuid", "primaryKey": false, "notNull": true }
       },
       "indexes": {},
       "foreignKeys": {
@@ -333,12 +282,8 @@
           "name": "projects_to_tags_project_id_projects_id_fk",
           "tableFrom": "projects_to_tags",
           "tableTo": "projects",
-          "columnsFrom": [
-            "project_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["project_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -346,12 +291,8 @@
           "name": "projects_to_tags_tag_id_tags_id_fk",
           "tableFrom": "projects_to_tags",
           "tableTo": "tags",
-          "columnsFrom": [
-            "tag_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["tag_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -361,10 +302,7 @@
         "projects_to_tags_unique_ids": {
           "name": "projects_to_tags_unique_ids",
           "nullsNotDistinct": false,
-          "columns": [
-            "project_id",
-            "tag_id"
-          ]
+          "columns": ["project_id", "tag_id"]
         }
       }
     },
@@ -391,12 +329,8 @@
           "name": "projects_to_technologies_project_id_projects_id_fk",
           "tableFrom": "projects_to_technologies",
           "tableTo": "projects",
-          "columnsFrom": [
-            "project_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["project_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -404,12 +338,8 @@
           "name": "projects_to_technologies_technology_id_technologies_id_fk",
           "tableFrom": "projects_to_technologies",
           "tableTo": "technologies",
-          "columnsFrom": [
-            "technology_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["technology_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -419,10 +349,7 @@
         "projects_to_technologies_unique_ids": {
           "name": "projects_to_technologies_unique_ids",
           "nullsNotDistinct": false,
-          "columns": [
-            "project_id",
-            "technology_id"
-          ]
+          "columns": ["project_id", "technology_id"]
         }
       }
     },
@@ -457,12 +384,7 @@
           "primaryKey": false,
           "notNull": false
         },
-        "user_id": {
-          "name": "user_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
+        "user_id": { "name": "user_id", "type": "uuid", "primaryKey": false, "notNull": true },
         "expires_at": {
           "name": "expires_at",
           "type": "timestamp",
@@ -476,12 +398,8 @@
           "name": "sessions_user_id_users_id_fk",
           "tableFrom": "sessions",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -520,24 +438,9 @@
           "primaryKey": false,
           "notNull": false
         },
-        "slug": {
-          "name": "slug",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "color": {
-          "name": "color",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        }
+        "slug": { "name": "slug", "type": "text", "primaryKey": false, "notNull": true },
+        "name": { "name": "name", "type": "text", "primaryKey": false, "notNull": true },
+        "color": { "name": "color", "type": "text", "primaryKey": false, "notNull": false }
       },
       "indexes": {},
       "foreignKeys": {},
@@ -546,16 +449,12 @@
         "tags_slug_unique": {
           "name": "tags_slug_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         },
         "tags_name_unique": {
           "name": "tags_name_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "name"
-          ]
+          "columns": ["name"]
         }
       }
     },
@@ -590,24 +489,9 @@
           "primaryKey": false,
           "notNull": false
         },
-        "slug": {
-          "name": "slug",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "color": {
-          "name": "color",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
+        "slug": { "name": "slug", "type": "text", "primaryKey": false, "notNull": true },
+        "name": { "name": "name", "type": "text", "primaryKey": false, "notNull": true },
+        "color": { "name": "color", "type": "text", "primaryKey": false, "notNull": false },
         "featured": {
           "name": "featured",
           "type": "boolean",
@@ -636,16 +520,12 @@
         "technologies_slug_unique": {
           "name": "technologies_slug_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         },
         "technologies_name_unique": {
           "name": "technologies_name_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "name"
-          ]
+          "columns": ["name"]
         }
       }
     },
@@ -686,12 +566,7 @@
           "primaryKey": false,
           "notNull": true
         },
-        "email": {
-          "name": "email",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
+        "email": { "name": "email", "type": "text", "primaryKey": false, "notNull": true },
         "password_hash": {
           "name": "password_hash",
           "type": "text",
@@ -714,35 +589,20 @@
         "users_username_unique": {
           "name": "users_username_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "username"
-          ]
+          "columns": ["username"]
         },
         "users_email_unique": {
           "name": "users_email_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "email"
-          ]
+          "columns": ["email"]
         }
       }
     }
   },
   "enums": {
-    "public.user_role": {
-      "name": "user_role",
-      "schema": "public",
-      "values": [
-        "ADMIN",
-        "USER"
-      ]
-    }
+    "public.user_role": { "name": "user_role", "schema": "public", "values": ["ADMIN", "USER"] }
   },
   "schemas": {},
   "sequences": {},
-  "_meta": {
-    "columns": {},
-    "schemas": {},
-    "tables": {}
-  }
+  "_meta": { "columns": {}, "schemas": {}, "tables": {} }
 }

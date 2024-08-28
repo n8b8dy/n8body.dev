@@ -1,11 +1,11 @@
-import { InferInsertModel, InferSelectModel, sql } from 'drizzle-orm'
+import type { InferInsertModel, InferSelectModel } from 'drizzle-orm'
 
+import { relations, sql } from 'drizzle-orm'
 import { pgTable, text } from 'drizzle-orm/pg-core'
-import { relations } from 'drizzle-orm'
 
 import { base } from '@/drizzle/schema/helpers'
-import { projectsToTechnologies } from '@/drizzle/schema/project/projectsToTechnologies'
 import { projectsToTags } from '@/drizzle/schema/project/projectsToTags'
+import { projectsToTechnologies } from '@/drizzle/schema/project/projectsToTechnologies'
 
 export const projects = pgTable('projects', {
   ...base,

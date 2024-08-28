@@ -2,11 +2,7 @@ import type { SVGProps } from '@/components/lib/svg/base'
 
 export const IntellijIDEA = (props: SVGProps) => {
   return (
-    <svg
-      preserveAspectRatio="xMidYMid"
-      viewBox="0 0 256 256"
-      {...props}
-    >
+    <svg preserveAspectRatio="xMidYMid" viewBox="0 0 256 256" {...props}>
       <defs>
         <linearGradient id="intellij_a" x1="0%" x2="99.799%" y1="50%" y2="50%">
           <stop offset="26%" stopColor="#F97A12" />

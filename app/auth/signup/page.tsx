@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
-import { Section } from '@/components/layout/Section'
 import { SignUpForm } from '@/collections/Auth/SignUpForm'
+import { Section } from '@/components/layout/Section'
+
 import { cn } from '@/utils/styles'
 
 export default function SignUp() {

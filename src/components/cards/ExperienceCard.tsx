@@ -3,6 +3,7 @@ import type { Experience } from '@/drizzle/schema/experience/experience'
 import { format } from 'date-fns'
 
 import { Heading } from '@/components/typography/Heading'
+
 import { cn } from '@/utils/styles'
 
 export interface ExperienceCardProps extends Experience {

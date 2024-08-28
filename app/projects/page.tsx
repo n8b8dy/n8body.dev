@@ -4,13 +4,11 @@ import type { Technology } from '@/drizzle/schema/technology/technologies'
 
 import { and, desc, eq, getTableColumns, ilike, or, sql } from 'drizzle-orm'
 
+import { SearchInput } from '@/collections/project/SearchInput'
 import { Catalog } from '@/collections/Projects/Catalog'
 import { Filters } from '@/collections/Projects/Filters'
 import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
-import { SearchInput } from '@/collections/project/SearchInput'
-
-import { cn } from '@/utils/styles'
 
 import { db } from '@/drizzle/db'
 import { projects } from '@/drizzle/schema/project/projects'
@@ -18,6 +16,8 @@ import { projectsToTags } from '@/drizzle/schema/project/projectsToTags'
 import { projectsToTechnologies } from '@/drizzle/schema/project/projectsToTechnologies'
 import { tags } from '@/drizzle/schema/tag/tags'
 import { technologies } from '@/drizzle/schema/technology/technologies'
+
+import { cn } from '@/utils/styles'
 
 export interface ProjectsFilters {
   search?: string
@@ -80,7 +80,10 @@ async function getData(filters: ProjectsFilters) {
 async function getFiltersData() {
   const [tagsData, technologiesData] = await Promise.all([
     db
-      .select({ ...getTableColumns(tags), projectCount: sql<number>`COUNT(${projectsToTags.projectId})` })
+      .select({
+        ...getTableColumns(tags),
+        projectCount: sql<number>`COUNT(${projectsToTags.projectId})`,
+      })
       .from(tags)
       .leftJoin(projectsToTags, eq(tags.id, projectsToTags.tagId))
       .groupBy(tags.id)

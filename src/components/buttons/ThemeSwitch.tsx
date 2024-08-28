@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 import { BsMoonStars } from 'react-icons/bs'
 import { IoPartlySunnyOutline } from 'react-icons/io5'
 

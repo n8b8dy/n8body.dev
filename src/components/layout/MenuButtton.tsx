@@ -1,6 +1,8 @@
 import type { Dispatch, SetStateAction } from 'react'
+
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+
 import { cn } from '@/utils/styles'
 
 export interface MenuButtonProps {

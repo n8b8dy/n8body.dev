@@ -1,5 +1,6 @@
-import { Navbar } from '@/components/layout/Navbar'
 import { ThemeSwitch } from '@/components/buttons/ThemeSwitch'
+import { Navbar } from '@/components/layout/Navbar'
+
 import { cn } from '@/utils/styles'
 
 export interface HeaderProps {}

@@ -1,6 +1,6 @@
 import type { Project } from '@/drizzle/schema/project/projects'
-import type { Technology } from '@/drizzle/schema/technology/technologies'
 import type { Tag } from '@/drizzle/schema/tag/tags'
+import type { Technology } from '@/drizzle/schema/technology/technologies'
 
 import { Card } from '@/collections/project/Card'
 

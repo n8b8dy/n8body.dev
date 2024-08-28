@@ -1,23 +1,23 @@
 'use server'
 
-import { logInSchema, LogInSchema, SignUpSchema } from '@/schemas/auth'
+import type { LogInSchema, SignUpSchema } from '@/schemas/auth'
+
 import type { ActionResponse } from '@/types/actions'
 
-import { DatabaseError } from 'pg'
 import { hash, verify } from 'argon2'
+import { eq } from 'drizzle-orm'
+import { DatabaseError } from 'pg'
 import { parse, ValiError } from 'valibot'
 
 import { createSession, deleteSession, getSession } from '@/lib/session'
 
-import { signUpSchema } from '@/schemas/auth'
-
 import { db } from '@/drizzle/db'
 import { users } from '@/drizzle/schema/user/users'
-import { eq } from 'drizzle-orm'
+import { logInSchema, signUpSchema } from '@/schemas/auth'
 
 export async function signUp(data: SignUpSchema): Promise<ActionResponse<{}>> {
   try {
-    if (await getSession()) return { error: "You are already logged in." }
+    if (await getSession()) return { error: 'You are already logged in.' }
 
     const { username, email, password } = parse(signUpSchema, data)
 
@@ -71,7 +71,7 @@ export async function logIn(data: LogInSchema): Promise<ActionResponse<{}>> {
 
     await createSession({ userId: user.id })
 
-    return { data: { } }
+    return { data: {} }
   } catch (err) {
     console.error('Error logging in: ', err)
 

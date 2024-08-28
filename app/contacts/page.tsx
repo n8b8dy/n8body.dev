@@ -1,11 +1,12 @@
 import Link from 'next/link'
+import { BiLogoTelegram } from 'react-icons/bi'
+import { FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 import { TbMail, TbMailCode } from 'react-icons/tb'
-import { FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { BiLogoTelegram } from 'react-icons/bi'
 
 import { Form } from '@/collections/Contacts/Form'
 import { Section } from '@/components/layout/Section'
+
 import { cn } from '@/utils/styles'
 
 const Paragraphs = [
