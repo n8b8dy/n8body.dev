@@ -1,12 +1,14 @@
 'use client'
 
-import { useRouter, useSearchParams } from 'next/navigation'
-import { Heading } from '@/components/typography/Heading'
-import { cn } from '@/utils/styles'
-
 import type { Tag } from '@/drizzle/schema/tag/tags'
 import type { Technology } from '@/drizzle/schema/technology/technologies'
+
+import { useRouter, useSearchParams } from 'next/navigation'
+
+import { Heading } from '@/components/typography/Heading'
+
 import { TechnologiesIcons } from '@/constants'
+import { cn } from '@/utils/styles'
 
 export interface FiltersProps {
   tags: Array<Tag>
@@ -87,11 +89,14 @@ export const Filters = ({ tags, technologies }: FiltersProps) => {
             className={cn(
               'px-2 py-1.5 flex gap-1.5 text-sm rounded',
               'border-[1px] border-neutral-800',
-              selectedTechnologies.includes(technology.slug) && 'bg-neutral-300 dark:bg-neutral-800',
+              selectedTechnologies.includes(technology.slug) &&
+                'bg-neutral-300 dark:bg-neutral-800',
             )}
             onClick={() => toggleTechnology(technology.slug)}
           >
-            <div className={cn('w-5 h-5 flex justify-stretch items-stretch')}>{TechnologiesIcons[technology.slug]}</div>
+            <div className={cn('w-5 h-5 flex justify-stretch items-stretch')}>
+              {TechnologiesIcons[technology.slug]}
+            </div>
             {technology.name}
           </button>
         ))}

@@ -1,7 +1,7 @@
 import type { InferInsertModel, InferSelectModel } from 'drizzle-orm'
 
-import { boolean, integer, pgTable, text } from 'drizzle-orm/pg-core'
 import { relations } from 'drizzle-orm'
+import { boolean, integer, pgTable, text } from 'drizzle-orm/pg-core'
 
 import { base } from '@/drizzle/schema/helpers'
 import { technologies } from '@/drizzle/schema/technology/technologies'

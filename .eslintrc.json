@@ -1,1 +1,53 @@
-{ "extends": "next/core-web-vitals" }
+{
+  "root": true,
+  "extends": ["next/core-web-vitals", "plugin:import/recommended", "plugin:import/typescript"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["import", "@typescript-eslint"],
+  "rules": {
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        "prefer": "type-imports",
+        "disallowTypeAnnotations": false,
+        "fixStyle": "separate-type-imports"
+      }
+    ],
+
+    "import/no-unresolved": "off",
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "type",
+          ["builtin", "external"],
+          "internal",
+          "unknown",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "{@/collections/**,@/components/**,@/providers/**}",
+            "group": "internal",
+            "position": "before"
+          },
+          { "pattern": "{@/actions/**,@/lib/**}", "group": "internal", "position": "before" },
+          {
+            "pattern": "{@/drizzle/**,@/schemas/**}",
+            "group": "internal",
+            "position": "before"
+          },
+          { "pattern": "{@/utils/**,@/constants}", "group": "internal", "position": "after" }
+        ],
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "newlines-between": "always",
+        "newlines-between-types": "always",
+        "distinctGroup": true,
+        "sortTypesGroup": true,
+        "named": true
+      }
+    ]
+  },
+  "settings": { "import/resolver": { "typescript": true, "node": true } }
+}

@@ -1,10 +1,10 @@
 import type { Experience } from '@/drizzle/schema/experience/experience'
 
+import { ExperienceCard, MobileExperienceCard } from '@/components/cards/ExperienceCard'
 import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
 import { Paragraph } from '@/components/typography/Paragraph'
 
-import { ExperienceCard, MobileExperienceCard } from '@/components/cards/ExperienceCard'
 import { cn } from '@/utils/styles'
 
 export interface ExperienceSectionProps {

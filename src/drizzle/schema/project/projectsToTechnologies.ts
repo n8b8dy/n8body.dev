@@ -1,5 +1,5 @@
-import { pgTable, unique, uuid } from 'drizzle-orm/pg-core'
 import { relations } from 'drizzle-orm'
+import { pgTable, unique, uuid } from 'drizzle-orm/pg-core'
 
 import { projects } from '@/drizzle/schema/project/projects'
 import { technologies } from '@/drizzle/schema/technology/technologies'

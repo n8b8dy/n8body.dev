@@ -2,19 +2,22 @@
 
 import type { SubmitHandler } from 'react-hook-form'
 
+import type { SignUpSchema } from '@/schemas/auth'
+
+import { valibotResolver } from '@hookform/resolvers/valibot'
+import { useRouter } from 'next/navigation'
 import { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { valibotResolver } from '@hookform/resolvers/valibot'
 import { HiOutlineUser } from 'react-icons/hi'
 import { MdAlternateEmail, MdLockOutline } from 'react-icons/md'
 
 import { Input } from '@/collections/Contacts/Input'
 
-import { cn } from '@/utils/styles'
-
-import { signUpSchema, SignUpSchema } from '@/schemas/auth'
 import { signUp } from '@/actions/auth'
-import { useRouter } from 'next/navigation'
+
+import { signUpSchema } from '@/schemas/auth'
+
+import { cn } from '@/utils/styles'
 
 export interface SignUpFormProps {}
 
@@ -87,13 +90,13 @@ export const SignUpForm = ({}: SignUpFormProps) => {
         label="Password *"
       />
 
-      {status === "success" && !isDirty && (
+      {status === 'success' && !isDirty && (
         <div className="pt-1 text-sm italic text-green-600">
           <span>Redirecting...</span>
         </div>
       )}
 
-      {status === "error" && (
+      {status === 'error' && (
         <div className="pt-1 text-sm italic text-red-600">
           <span>{error || 'Unexpected error occurred, try later!'}</span>
         </div>

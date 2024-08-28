@@ -1,13 +1,13 @@
 import type { Project } from '@/drizzle/schema/project/projects'
-import type { Technology } from '@/drizzle/schema/technology/technologies'
 import type { Tag } from '@/drizzle/schema/tag/tags'
+import type { Technology } from '@/drizzle/schema/technology/technologies'
 
 import { memo } from 'react'
 
 import { Heading } from '@/components/typography/Heading'
-import { cn } from '@/utils/styles'
 
 import { TechnologiesIcons } from '@/constants'
+import { cn } from '@/utils/styles'
 
 export interface ProjectCardProps extends Project {
   tags: Array<Tag>

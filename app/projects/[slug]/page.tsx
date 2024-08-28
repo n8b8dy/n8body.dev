@@ -1,22 +1,18 @@
 import { eq } from 'drizzle-orm'
+import { RxExternalLink } from 'react-icons/rx'
+import { VscGithub } from 'react-icons/vsc'
 
-import { Section } from '@/components/layout/Section'
-import { Heading } from '@/components/typography/Heading'
 import { BreadCrumbs } from '@/components/common/BreadCrumbs'
-import { MarkdownCompiler } from '@/components/markdown/MarkdownCompiler'
 import { ErrorSection } from '@/components/layout/ErrorSection'
-
-import { cn } from '@/utils/styles'
+import { Section } from '@/components/layout/Section'
+import { MarkdownCompiler } from '@/components/markdown/MarkdownCompiler'
+import { Heading } from '@/components/typography/Heading'
 
 import { db } from '@/drizzle/db'
 import { projects } from '@/drizzle/schema/project/projects'
 
 import { TechnologiesIcons } from '@/constants'
-import { RiGitRepositoryFill, RiGitRepositoryLine } from 'react-icons/ri'
-import { TbWorldShare } from 'react-icons/tb'
-import { SiOpensourceinitiative } from 'react-icons/si'
-import { RxExternalLink } from 'react-icons/rx'
-import { VscGithub } from 'react-icons/vsc'
+import { cn } from '@/utils/styles'
 
 export async function generateStaticParams() {
   return db.query.projects.findMany({ columns: { slug: true } })
@@ -84,8 +80,16 @@ export default async function ProjectsSlug({ params }: { params: { slug: string 
         ))}
 
         <div className={cn('ml-auto flex items-center gap-3')}>
-          {link && <a href={link}><RxExternalLink className={cn('w-7 h-7')}/></a>}
-          {repository && <a href={repository}><VscGithub className={cn('w-6 h-6')}/></a>}
+          {link && (
+            <a href={link}>
+              <RxExternalLink className={cn('w-7 h-7')} />
+            </a>
+          )}
+          {repository && (
+            <a href={repository}>
+              <VscGithub className={cn('w-6 h-6')} />
+            </a>
+          )}
         </div>
       </div>
 

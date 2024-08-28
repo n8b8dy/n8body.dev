@@ -2,18 +2,21 @@
 
 import type { SubmitHandler } from 'react-hook-form'
 
+import type { LogInSchema } from '@/schemas/auth'
+
+import { valibotResolver } from '@hookform/resolvers/valibot'
+import { useRouter } from 'next/navigation'
 import { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { valibotResolver } from '@hookform/resolvers/valibot'
 import { MdAlternateEmail, MdLockOutline } from 'react-icons/md'
 
 import { Input } from '@/collections/Contacts/Input'
 
-import { cn } from '@/utils/styles'
-
-import { logInSchema, LogInSchema } from '@/schemas/auth'
 import { logIn } from '@/actions/auth'
-import { useRouter } from 'next/navigation'
+
+import { logInSchema } from '@/schemas/auth'
+
+import { cn } from '@/utils/styles'
 
 export interface LogInFormProps {}
 

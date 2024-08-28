@@ -3,8 +3,8 @@
 import { Fragment, useEffect, useState } from 'react'
 import { FiMenu } from 'react-icons/fi'
 
-import { NavbarButtons } from '@/components/layout/Navbar'
 import { MenuButton } from '@/components/layout/MenuButtton'
+import { NavbarButtons } from '@/components/layout/Navbar'
 
 import { cn } from '@/utils/styles'
 

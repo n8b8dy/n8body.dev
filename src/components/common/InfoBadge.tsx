@@ -1,7 +1,9 @@
 import type { PropsWithChildren } from 'react'
-import { cn } from '@/utils/styles'
-import { Tooltip } from 'react-tooltip'
+
 import { IoInformationCircleSharp } from 'react-icons/io5'
+import { Tooltip } from 'react-tooltip'
+
+import { cn } from '@/utils/styles'
 
 export interface InfoBadgeProps extends PropsWithChildren {}
 

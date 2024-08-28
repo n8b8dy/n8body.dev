@@ -2,11 +2,7 @@ import type { SVGProps } from '@/components/lib/svg/base'
 
 export const OctocatSVG = (props: SVGProps) => {
   return (
-    <svg
-      preserveAspectRatio="xMidYMid"
-      viewBox="-1.65 0 259.3 259.3"
-      {...props}
-    >
+    <svg preserveAspectRatio="xMidYMid" viewBox="-1.65 0 259.3 259.3" {...props}>
       <path
         fill="#9EDCF2"
         d="M200.9 199.8c0 13.9-32.2 25.1-71.9 25.1s-71.9-11.3-71.9-25.1c0-13.9 32.2-25.1 71.9-25.1s71.9 11.2 71.9 25.1zm0 0"

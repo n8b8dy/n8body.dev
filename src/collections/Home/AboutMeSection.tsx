@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
+import { UserIpText } from '@/collections/Home/UserIpText'
 import { Section } from '@/components/layout/Section'
+import { Bold } from '@/components/typography/Bold'
 import { Heading } from '@/components/typography/Heading'
 import { Paragraph } from '@/components/typography/Paragraph'
-import { Bold } from '@/components/typography/Bold'
-import { UserIpText } from '@/collections/Home/UserIpText'
 
 import { cn } from '@/utils/styles'
 
