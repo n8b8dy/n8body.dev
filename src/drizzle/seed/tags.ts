@@ -10,8 +10,8 @@ const TAGS = [
   ['BOT', 'Bot'],
 ]
 
-;(async function seed() {
-  console.log('Seeding Database with tags...')
+void (async function seed() {
+  console.info('Seeding Database with tags...')
 
   try {
     for (const tag of TAGS) {
@@ -21,7 +21,7 @@ const TAGS = [
         .onConflictDoUpdate({ target: tags.slug, set: { name: tag[1] } })
     }
 
-    console.log('Database seeding with tags complete!')
+    console.info('Database seeding with tags complete!')
   } catch (error) {
     console.error('Error during seeding tags:', error)
   }

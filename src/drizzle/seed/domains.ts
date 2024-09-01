@@ -195,7 +195,8 @@ export const DOMAINS = [
     ],
   },
 ]
-;(async function seed() {
+
+void (async function seed() {
   console.info('Seeding Database with domains...')
 
   try {
