@@ -194,6 +194,18 @@ export const DOMAINS = [
       },
     ],
   },
+  {
+    name: 'Design',
+    slug: 'DESIGN',
+    backgroundColor: '#342437',
+    borderColor: '#85597d',
+    lightBackgroundColor: '#F5F2F7',
+    lightBorderColor: '#ddc3db',
+    featured: true,
+    technologies: [
+      { slug: 'FIGMA', name: 'Figma', color: null, featured: true, showOff: false },
+    ],
+  },
 ]
 
 void (async function seed() {
