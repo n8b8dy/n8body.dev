@@ -8,6 +8,7 @@ import { ExpoSVG } from '@/components/lib/svg/Expo'
 import { ExpressSVG } from '@/components/lib/svg/Express'
 import { FedoraSVG } from '@/components/lib/svg/Fedora'
 import { FiberSVG } from '@/components/lib/svg/Fiber'
+import { FigmaSVG } from '@/components/lib/svg/Figma'
 import { FramerMotionSVG } from '@/components/lib/svg/FramerMotion'
 import { GinSVG } from '@/components/lib/svg/Gin'
 import { GitSVG } from '@/components/lib/svg/Git'
@@ -17,7 +18,7 @@ import { GraphqlSVG } from '@/components/lib/svg/Graphql'
 import { GrpcSVG } from '@/components/lib/svg/Grpc'
 import { GsapSVG } from '@/components/lib/svg/Gsap'
 import { HAProxySVG } from '@/components/lib/svg/HAProxy'
-import { IntellijIDEA } from '@/components/lib/svg/IntellijIDEA'
+import { IntellijIDEASVG } from '@/components/lib/svg/IntellijIDEA'
 import { JavascriptSVG } from '@/components/lib/svg/Javascript'
 import { JenkinsSVG } from '@/components/lib/svg/Jenkins'
 import { KafkaSVG } from '@/components/lib/svg/Kafka'
@@ -117,8 +118,8 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
 
   // Tools
   GIT: <GitSVG />,
-  INTELLIJ_IDEA: <IntellijIDEA className={cn('transform scale-95')} />,
+  INTELLIJ_IDEA: <IntellijIDEASVG className={cn('transform scale-95')} />,
 
   // Design
-  FIGMA: <></>,
+  FIGMA: <FigmaSVG />,
 } as const

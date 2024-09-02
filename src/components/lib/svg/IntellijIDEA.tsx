@@ -1,6 +1,6 @@
 import type { SVGProps } from '@/components/lib/svg/base'
 
-export const IntellijIDEA = (props: SVGProps) => {
+export const IntellijIDEASVG = (props: SVGProps) => {
   return (
     <svg preserveAspectRatio="xMidYMid" viewBox="0 0 256 256" {...props}>
       <defs>
