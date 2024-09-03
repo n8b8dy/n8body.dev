@@ -105,8 +105,9 @@ export const TechStackSection = ({ domains }: TechStackSectionProps) => {
         <div className={cn('flex gap-2 items-center')}>
           <InfoBadge>
             <span>
-              Show off mode enables rendering of all the little technologies that are too minor
-              to be taken seriously, but I&apos;ve still seen them in job postings.
+              Show off mode enables rendering of all the technologies that are either too minor
+              but occasionally required in job postings, <strong>or</strong> not my specialty,
+              yet I still use them fairly often.
             </span>
           </InfoBadge>
 

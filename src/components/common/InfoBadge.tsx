@@ -14,7 +14,11 @@ export const InfoBadge = ({ children }: InfoBadgeProps) => {
         data-tooltip-id="show-off-tooltip"
         className={cn('w-5 h-5 text-neutral-500')}
       />
-      <Tooltip id="show-off-tooltip" place="bottom-start" className={cn('max-w-[95%] z-10')}>
+      <Tooltip
+        id="show-off-tooltip"
+        place="bottom-start"
+        className={cn('max-w-[min(95%,64rem)] z-10')}
+      >
         {children}
       </Tooltip>
     </>
