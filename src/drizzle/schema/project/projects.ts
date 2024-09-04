@@ -16,10 +16,6 @@ export const projects = pgTable('projects', {
   description: text('description'),
   link: text('link'),
   repository: text('repository'),
-
-  sections: text('sections')
-    .array()
-    .default(sql`ARRAY[]::text[]`),
 })
 
 export const projectsRelations = relations(projects, ({ many }) => ({
