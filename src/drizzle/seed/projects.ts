@@ -17,14 +17,14 @@ void (async function seed() {
         slug: 'n8body-dev',
         title: 'n8body.dev',
         link: 'https://n8body.dev/',
-        repository: 'https://github.com/n8b8dy/n8body.dev-next-fullstack',
+        repository: 'https://github.com/n8b8dy/n8body.dev',
       })
       .onConflictDoUpdate({
         target: projects.slug,
         set: {
           title: 'n8body.dev',
           link: 'https://n8body.dev/',
-          repository: 'https://github.com/n8b8dy/n8body.dev-next-fullstack',
+          repository: 'https://github.com/n8b8dy/n8body.dev',
         },
       })
       .returning({ projectId: projects.id })
@@ -39,17 +39,21 @@ void (async function seed() {
       ]),
       columns: { id: true },
     })
+
     await db
       .insert(projectsToTechnologies)
       .values(projectTechs.map(({ id: technologyId }) => ({ projectId, technologyId })))
+      .onConflictDoNothing()
 
     const projectTags = await db
       .select({ id: tags.id })
       .from(tags)
       .where(eq(tags.slug, 'FULLSTACK'))
+
     await db
       .insert(projectsToTags)
       .values(projectTags.map(({ id: tagId }) => ({ projectId, tagId })))
+      .onConflictDoNothing()
 
     console.info('Database seeding with projects complete!')
   } catch (error) {

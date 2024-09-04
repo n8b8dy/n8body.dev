@@ -1,3 +1,4 @@
+import { Octokit } from '@octokit/rest'
 import { eq } from 'drizzle-orm'
 import { RxExternalLink } from 'react-icons/rx'
 import { VscGithub } from 'react-icons/vsc'
@@ -12,6 +13,7 @@ import { db } from '@/drizzle/db'
 import { projects } from '@/drizzle/schema/project/projects'
 
 import { TechnologiesIcons } from '@/constants'
+import { parseRepoUrl } from '@/utils/strings'
 import { cn } from '@/utils/styles'
 
 export async function generateStaticParams() {
@@ -26,28 +28,39 @@ async function getData(slug: string) {
       projectsToTags: { with: { tag: true } },
     },
   })
+  if (!projectData) return { project: undefined, readme: undefined }
 
-  if (!projectData) return { project: undefined }
+  const { projectsToTechnologies, projectsToTags, ...restProjectData } = projectData
 
-  const { projectsToTechnologies, projectsToTags, ...project } = projectData
-
-  return {
-    project: {
-      ...project,
-      tags: projectsToTags.map(projectToTag => projectToTag.tag),
-      technologies: projectsToTechnologies.map(
-        projectToTechnology => projectToTechnology.technology,
-      ),
-    },
+  const project = {
+    ...restProjectData,
+    tags: projectsToTags.map(projectToTag => projectToTag.tag),
+    technologies: projectsToTechnologies.map(
+      projectToTechnology => projectToTechnology.technology,
+    ),
   }
+
+  if (!project.repository) return { project, readme: undefined }
+
+  const repoParams = parseRepoUrl(project.repository)
+  if (!repoParams) return { project, readme: undefined }
+
+  const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
+
+  const { data: readme } = await octokit.repos.getReadme({
+    ...repoParams,
+    mediaType: { format: 'raw' },
+  })
+
+  return { project, readme: readme as unknown as string }
 }
 
 export default async function ProjectsSlug({ params }: { params: { slug: string } }) {
-  const { project } = await getData(params.slug)
+  const { project, readme } = await getData(params.slug)
 
   if (!project) return <ErrorSection status={404} description="Project Not Found" />
 
-  const { title, description, technologies, tags, link, repository, sections } = project
+  const { title, description, technologies, tags, link, repository } = project
 
   return (
     <Section>
@@ -110,11 +123,9 @@ export default async function ProjectsSlug({ params }: { params: { slug: string 
         ))}
       </div>
 
-      {sections && (
-        <div className={cn('mt-4 flex flex-col gap-1 text-lg')}>
-          {sections.map((section, index) => (
-            <MarkdownCompiler key={index} content={section} />
-          ))}
+      {readme && (
+        <div className={cn('mt-4')}>
+          <MarkdownCompiler content={readme} />
         </div>
       )}
     </Section>
