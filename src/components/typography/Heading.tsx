@@ -7,7 +7,7 @@ import { FaLink } from 'react-icons/fa'
 import { cn } from '@/utils/styles'
 
 const HeadingClassnames = {
-  h1: 'text-6xl sm:text-7xl font-medium',
+  h1: 'text-5xl sm:text-6xl font-medium',
   h2: 'text-xl sm:text-3xl',
   h3: 'mt-4 mb-2 text-2xl md:text-3xl font-medium',
   h4: 'text-xl sm:text-3xl',
