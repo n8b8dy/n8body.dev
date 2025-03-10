@@ -1,34 +1,51 @@
 import type { ReactNode } from 'react'
-import type { ProjectTag, ProjectTechnology } from '@prisma/client'
 
-import { ExpoSVG, GopherSVG, JavascriptSVG, NodeSVG, PostgresSVG, PrismaSVG, ReactSVG, TailwindSVG, TypescriptSVG, VueSVG } from '@/components/lib/svg'
+import {
+  ArchSVG, DenoSVG,
+  DockerSVG, DrizzleSVG,
+  ExpoSVG, ExpressSVG, GitSVG,
+  GopherSVG,
+  JavascriptSVG,
+  LinuxSVG,
+  NextSVG,
+  NodeSVG,
+  PostgresSVG,
+  PrismaSVG,
+  ReactSVG,
+  TailwindSVG,
+  TypescriptSVG,
+  VueSVG,
+} from '@/components/lib/svg'
+import { cn } from '@/utils/styles'
 
-export const ProjectTechnologies: Record<ProjectTechnology, {
-  title: string
-  icon: ReactNode
-}> = {
-  JAVASCRIPT: { title: 'JavaScript', icon: <JavascriptSVG/> },
-  TYPESCRIPT: { title: 'TypeScript', icon: <TypescriptSVG/> },
+export const TechnologiesIcons: Record<string, ReactNode> = {
+  JAVASCRIPT: <JavascriptSVG/>,
+  TYPESCRIPT: <TypescriptSVG/>,
+  GOLANG: <GopherSVG/>,
+  NODEJS: <NodeSVG/>,
+  DENO: <DenoSVG/>,
 
-  GOLANG: { title: 'Golang', icon: <GopherSVG/> },
-  NODEJS: { title: 'Node.js', icon: <NodeSVG/> },
+  REACT: <ReactSVG/>,
+  ANGULAR: null,
+  VUEJS: <VueSVG/>,
 
-  REACT: { title: 'React', icon: <ReactSVG/> },
-  VUEJS: { title: 'Vue.js', icon: <VueSVG/> },
+  NEXTJS: <NextSVG/>,
 
-  TAILWIND: { title: 'Tailwind', icon: <TailwindSVG/> },
+  EXPRESS: <ExpressSVG/>,
 
-  POSTGRES: { title: 'Postgres', icon: <PostgresSVG/> },
-  PRISMA: { title: 'Prisma', icon: <PrismaSVG/> },
+  TAILWIND: <TailwindSVG/>,
 
-  REACTNATIVE: { title: 'React Native', icon: <ReactSVG/> },
-  EXPO: { title: 'Expo', icon: <ExpoSVG/> },
-}
+  POSTGRES: <PostgresSVG/>,
+  PRISMA: <PrismaSVG/>,
+  DRIZZLE: <DrizzleSVG/>,
 
-export const ProjectTags: Record<ProjectTag, string> = {
-  FRONTEND: 'Front End',
-  BACKEND: 'Back End',
-  FULLSTACK: 'Full Stack',
-  SCRAPER: 'Scraper',
-  BOT: 'Bot',
-}
+  EXPO: <ExpoSVG className={cn('transform scale-[1.1]')}/>,
+  REACT_NATIVE: <ReactSVG/>,
+
+  DOCKER: <DockerSVG className={cn('transform scale-[1.5]')}/>,
+
+  GIT: <GitSVG/>,
+
+  LINUX: <LinuxSVG className={cn('transform scale-[1.1]')}/>,
+  ARCH: <ArchSVG/>
+} as const

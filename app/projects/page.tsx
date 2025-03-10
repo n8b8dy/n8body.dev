@@ -1,15 +1,39 @@
+import { desc } from 'drizzle-orm'
+
+import { Catalog } from '@/collections/Projects/Catalog'
 import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
-import { Catalog } from '@/collections/Projects/Catalog'
 
-import prisma from '@/lib/prisma'
 import { cn } from '@/utils/styles'
 
+import { db } from '@/drizzle/db'
+import { technologies } from '@/drizzle/schema/technology/technologies'
+
 async function getData() {
-  const projects = await prisma.project.findMany()
+  const projectsData = (await db.query.projects.findMany({
+    limit: 5,
+    orderBy: desc(technologies.updatedAt),
+    with: {
+      projectsToTechnologies: {
+        with: {
+          technology: true
+        }
+      },
+      projectsToTags: {
+        with: {
+          tag: true,
+        }
+      },
+
+    }
+  })).map(({  projectsToTechnologies, projectsToTags, ...project }) => ({
+    ...project,
+    tags: projectsToTags.map(projectToTag => projectToTag.tag),
+    technologies: projectsToTechnologies.map(projectToTechnology => projectToTechnology.technology)
+  }))
 
   return {
-    projects,
+    projects: projectsData,
   }
 }
 

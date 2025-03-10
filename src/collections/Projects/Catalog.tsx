@@ -1,19 +1,24 @@
 'use client'
 
-import type { FC } from 'react'
-import type { Project } from '@prisma/client'
+import type { Project } from '@/drizzle/schema/project/projects'
+import type { Technology } from '@/drizzle/schema/technology/technologies'
+import type { Tag } from '@/drizzle/schema/tag/tags'
 
 import { Fragment, useMemo, useState } from 'react'
 
 import { ProjectCard } from '@/components/project/ProjectCard'
+
 import { cn } from '@/utils/styles'
 
 export interface CatalogProps {
-  projects: Array<Project>
+  projects: Array<Project & {
+    tags: Array<Tag>
+    technologies: Array<Technology>
+  }>
 }
 
 // TODO: Create Card specially for this grid
-export const Catalog: FC<CatalogProps> = ({ projects }) => {
+export const Catalog = ({ projects }: CatalogProps) => {
   const [searchText, setSearchText] = useState('')
 
   const filteredProjects = useMemo(() => projects.filter(p => {
