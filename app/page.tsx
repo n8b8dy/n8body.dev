@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { desc, eq } from 'drizzle-orm'
 
 import { Section } from '@/components/layout/Section'
 
@@ -8,22 +9,45 @@ import { AboutMeSection } from '@/collections/Home/AboutMeSection'
 import { TechStackSection } from '@/collections/Home/TechStackSection'
 import { ProjectsSection } from '@/collections/Home/ProjectsSection'
 
-import prisma from '@/lib/prisma'
 import { cn } from '@/utils/styles'
+import { db } from '@/drizzle/db'
+import { technologies } from '@/drizzle/schema/technology/technologies'
 
 async function getData() {
-  const projects = await prisma.project.findMany({
-    take: 8,
-    orderBy: { createdAt: 'desc' },
+  const technologiesData = await db.query.technologies.findMany({
+    where: eq(technologies.featured, true)
   })
 
+  const projectsData = (await db.query.projects.findMany({
+    limit: 5,
+    orderBy: desc(technologies.updatedAt),
+    with: {
+      projectsToTechnologies: {
+        with: {
+          technology: true
+        }
+      },
+      projectsToTags: {
+        with: {
+          tag: true,
+        }
+      },
+
+    }
+  })).map(({  projectsToTechnologies, projectsToTags, ...project }) => ({
+    ...project,
+    tags: projectsToTags.map(projectToTag => projectToTag.tag),
+    technologies: projectsToTechnologies.map(projectToTechnology => projectToTechnology.technology)
+  }))
+
   return {
-    projects,
+    technologies: technologiesData,
+    projects: projectsData,
   }
 }
 
 export default async function Home() {
-  const { projects } = await getData()
+  const { technologies, projects } = await getData()
 
   return (
     <Fragment>
@@ -37,7 +61,7 @@ export default async function Home() {
       </div>
 
       <AboutMeSection/>
-      <TechStackSection/>
+      <TechStackSection technologies={technologies}/>
       <ProjectsSection projects={projects}/>
 
       <Section>
