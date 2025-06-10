@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { desc, eq } from 'drizzle-orm'
+import { desc, asc, eq } from 'drizzle-orm'
 
 import { Section } from '@/components/layout/Section'
 
@@ -8,20 +8,26 @@ import { HeroSection } from '@/collections/Home/HeroSection'
 import { AboutMeSection } from '@/collections/Home/AboutMeSection'
 import { TechStackSection } from '@/collections/Home/TechStackSection'
 import { ProjectsSection } from '@/collections/Home/ProjectsSection'
+import { ExperienceSection } from '@/collections/Home/ExperienceSection'
 
 import { cn } from '@/utils/styles'
 import { db } from '@/drizzle/db'
+import { domains } from '@/drizzle/schema/domain/domains'
 import { technologies } from '@/drizzle/schema/technology/technologies'
 
 async function getData() {
-  const technologiesData = await db.query.technologies.findMany({
-    where: eq(technologies.featured, true),
+  const domainsData = await db.query.domains.findMany({
+    where: eq(domains.featured, true),
+    orderBy: [asc(domains.rank)],
+    with: {
+      technologies: { where: eq(technologies.featured, true), orderBy: [asc(technologies.rank)] },
+    },
   })
 
   const projectsData = (
     await db.query.projects.findMany({
       limit: 5,
-      orderBy: desc(technologies.updatedAt),
+      orderBy: [desc(technologies.updatedAt)],
       with: {
         projectsToTechnologies: { with: { technology: true } },
         projectsToTags: { with: { tag: true } },
@@ -35,11 +41,11 @@ async function getData() {
     ),
   }))
 
-  return { technologies: technologiesData, projects: projectsData }
+  return { domains: domainsData, projects: projectsData }
 }
 
 export default async function Home() {
-  const { technologies, projects } = await getData()
+  const { domains, projects } = await getData()
 
   return (
     <Fragment>
@@ -55,8 +61,9 @@ export default async function Home() {
       </div>
 
       <AboutMeSection />
-      <TechStackSection technologies={technologies} />
+      <TechStackSection domains={domains} />
       <ProjectsSection projects={projects} />
+      <ExperienceSection />
 
       <Section>
         <div className={cn('py-16 flex flex-col items-center gap-2')}>

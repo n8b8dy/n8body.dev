@@ -1,6 +1,5 @@
 import { Navbar } from '@/components/layout/Navbar'
 import { ThemeSwitch } from '@/components/buttons/ThemeSwitch'
-import { AuthButton } from '@/components/buttons/AuthButton'
 import { cn } from '@/utils/styles'
 
 export interface HeaderProps {}
@@ -21,7 +20,6 @@ export const Header = ({}: HeaderProps) => {
 
         <div className={cn('flex items-center gap-1')}>
           <ThemeSwitch />
-          <AuthButton />
         </div>
       </header>
     </div>
