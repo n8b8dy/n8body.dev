@@ -15,6 +15,55 @@
       "when": 1741551962996,
       "tag": "0001_add_featured_column_to_technologies",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1741802305406,
+      "tag": "0002_create_users",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1741830407795,
+      "tag": "0003_create_sessions",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1741834894404,
+      "tag": "0004_delete_token_column_from_sessions",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1749249680809,
+      "tag": "0005_create_domains",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1749339211137,
+      "tag": "0006_add_ranks_to_technologies",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1749400116767,
+      "tag": "0007_add_light_colors_to_domains",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1751128504993,
+      "tag": "0008_create_experiences",
+      "breakpoints": true
     }
   ]
 }

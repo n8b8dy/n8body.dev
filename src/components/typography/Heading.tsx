@@ -8,16 +8,18 @@ import { cn } from '@/utils/styles'
 
 const HeadingClassnames = {
   h1: 'text-6xl sm:text-7xl font-medium',
-  h2: 'text-3xl sm:text-4xl md:text-5xl',
+  h2: 'text-xl sm:text-3xl',
   h3: 'mt-4 mb-2 text-2xl md:text-3xl font-medium',
   h4: 'text-xl sm:text-3xl',
   h5: 'text-xl md:text-2xl',
+  h6: 'text-lg md:text-xl font-medium',
 } as const
 
 type TagVariants = keyof typeof HeadingClassnames
 
 export interface HeadingProps extends ComponentPropsWithoutRef<TagVariants> {
   tag: TagVariants
+  overrideTagVariant?: TagVariants
   terminal?: boolean
   href?: string
 }
@@ -25,6 +27,7 @@ export interface HeadingProps extends ComponentPropsWithoutRef<TagVariants> {
 export const Heading = ({
   children,
   tag,
+  overrideTagVariant,
   terminal = false,
   className,
   href,
@@ -34,7 +37,7 @@ export const Heading = ({
     tag,
     {
       className: cn(
-        HeadingClassnames[tag],
+        HeadingClassnames[overrideTagVariant || tag],
         terminal && [
           'before:content-["$_"] before:text-transparent before:bg-clip-text',
           'before:animate-background-shine before:bg-gradient-FVW',
