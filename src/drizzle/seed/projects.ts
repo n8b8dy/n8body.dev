@@ -6,6 +6,7 @@ import { projectsToTechnologies } from '@/drizzle/schema/project/projectsToTechn
 import { projectsToTags } from '@/drizzle/schema/project/projectsToTags'
 import { technologies } from '@/drizzle/schema/technology/technologies'
 import { tags } from '@/drizzle/schema/tag/tags'
+
 ;(async function seed() {
   console.log('Seeding Database with projects...')
 
