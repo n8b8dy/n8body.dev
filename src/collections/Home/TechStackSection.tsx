@@ -4,16 +4,21 @@ import type { RenderComponentProps } from 'masonic'
 import type { Technology } from '@/drizzle/schema/technology/technologies'
 import type { Domain } from '@/drizzle/schema/domain/domains'
 
+import { useEffect, useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useTheme } from 'next-themes'
 import { Masonry as _Masonry } from 'masonic'
+import { Tooltip } from 'react-tooltip'
 
 import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
 import { TechnologyCard } from '@/components/cards/TechnologyCard'
+import { Toggle } from '@/components/inputs/Toggle'
 import { cn, universalColorOpacity } from '@/utils/styles'
 
 import { TechnologiesIcons } from '@/constants'
+import { IoInformationCircleSharp } from 'react-icons/io5'
+import { InfoBadge } from '@/components/common/InfoBadge'
 
 export interface TechStackSectionProps {
   domains: Array<Domain & { technologies: Array<Technology> }>
@@ -34,6 +39,8 @@ const MasonryDomain = ({
   },
 }: RenderComponentProps<TechStackSectionProps['domains'][number]>) => {
   const { resolvedTheme } = useTheme()
+
+  if (technologies.length === 0) return null
 
   return (
     <fieldset
@@ -69,14 +76,53 @@ const MasonryDomain = ({
 }
 
 export const TechStackSection = ({ domains }: TechStackSectionProps) => {
+  const [showOffMode, setShowOffMode] = useState(false)
+
+  useEffect(() => {
+    setShowOffMode(JSON.parse(localStorage.getItem('show-off-mode') || 'false'))
+  }, [])
+
+  const changeHandler = (checked: boolean) => {
+    localStorage.setItem('show-off-mode', String(checked))
+    setShowOffMode(checked)
+  }
+
+  const filteredDomains = useMemo(
+    () =>
+      showOffMode
+        ? domains
+        : domains.map(domain => ({
+            ...domain,
+            technologies: domain.technologies.filter(technology => !technology.showOff),
+          })),
+    [domains, showOffMode],
+  )
+
   return (
     <Section>
-      <Heading tag="h3" terminal>
-        Tech Stack
-      </Heading>
+      <div className={cn('flex flex-col')}>
+        <Heading tag="h3" terminal>
+          Tech Stack
+        </Heading>
+        <div className={cn('flex gap-2 items-center')}>
+          <InfoBadge>
+            <span>
+              Show off mode enables rendering of all the little technologies that are too minor
+              to be taken seriously, but I&apos;ve still seen them in job postings.
+            </span>
+          </InfoBadge>
+
+          <Heading tag="h6" className={cn('opacity-60 font-normal')}>
+            Show off mode
+          </Heading>
+          <Toggle checked={showOffMode} size={9} onChange={changeHandler} />
+        </div>
+      </div>
+
       <div className={cn('mt-2 mb-1')}>
         <Masonry
-          items={domains}
+          key={String(showOffMode)}
+          items={filteredDomains}
           render={MasonryDomain}
           maxColumnCount={3}
           columnWidth={300}

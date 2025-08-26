@@ -13,6 +13,7 @@ export const NavbarButtons: Array<NavbarButtonProps> = [
   { href: '/projects', text: 'Projects' },
   { href: '/books', text: 'Books' },
   { href: '/contacts', text: 'Contacts' },
+  { href: 'https://buymeacoffee.com/n8body', text: 'Support Me' },
 ] as const
 
 export const Navbar = ({}: NavbarProps) => {

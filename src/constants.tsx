@@ -47,6 +47,7 @@ import { cn } from '@/utils/styles'
 import { KubernetesSVG } from '@/components/lib/svg/Kubernetes'
 import { ViteSVG } from '@/components/lib/svg/Vite'
 import { TrpcSVG } from '@/components/lib/svg/Trpc'
+import { Rest } from '@/components/lib/svg/Rest'
 
 export const TechnologiesIcons: Record<string, ReactNode> = {
   // Programming Languages
@@ -85,6 +86,7 @@ export const TechnologiesIcons: Record<string, ReactNode> = {
   NESTJS: <NestSVG />,
   FIBER: <FiberSVG className={cn('text-[#333] dark:text-neutral-200')} />,
   GIN: <GinSVG />,
+  REST: <Rest />,
   GRAPHQL: <GraphqlSVG />,
   GRPC: <GrpcSVG />,
   TRPC: <TrpcSVG />,

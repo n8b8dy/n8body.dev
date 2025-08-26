@@ -27,7 +27,7 @@ export const ProjectCard = memo(
           {title}
         </Heading>
 
-        <p className={cn('mb-1 flex-1 text-lg line-clamp-3 opacity-80')}>{description}</p>
+        <p className={cn('mb-1 flex-1 line-clamp-3 opacity-80')}>{description}</p>
 
         <div className={cn('items-center flex flex-wrap gap-1.5 text-xs md:text-sm')}>
           {technologies.map(technology => (

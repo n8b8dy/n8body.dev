@@ -1,0 +1,1 @@
+ALTER TABLE "technologies" ADD COLUMN "show_off" boolean DEFAULT false NOT NULL;
