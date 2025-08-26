@@ -16,6 +16,7 @@ export const technologies = pgTable('technologies', {
 
   featured: boolean('featured').notNull().default(false),
   rank: integer('rank').notNull().default(1),
+  showOff: boolean('show_off').notNull().default(false),
 
   domainId: uuid('domainId'),
 })
