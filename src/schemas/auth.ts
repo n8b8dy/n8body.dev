@@ -1,5 +1,6 @@
 import type { InferOutput } from 'valibot'
-import { email, maxLength, nonEmpty, minLength, object, pipe, string, regex } from 'valibot'
+
+import { email, maxLength, minLength, nonEmpty, object, pipe, regex, string } from 'valibot'
 
 export const signUpSchema = object({
   username: pipe(

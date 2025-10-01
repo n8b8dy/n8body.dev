@@ -1,7 +1,9 @@
 'use client'
 
 import { TypeAnimation } from 'react-type-animation'
+
 import { Heading } from '@/components/typography/Heading'
+
 import { cn } from '@/utils/styles'
 
 export interface TechnologyHeadingProps {}

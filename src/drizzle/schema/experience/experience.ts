@@ -12,7 +12,7 @@ export const experiences = pgTable(`experiences`, {
   description: text('description'),
 
   startDate: date('start_date').notNull(),
-  endDate: date('end_date')
+  endDate: date('end_date'),
 })
 
 export type Experience = InferSelectModel<typeof experiences>

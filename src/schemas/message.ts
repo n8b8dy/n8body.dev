@@ -1,5 +1,6 @@
 import type { InferOutput } from 'valibot'
-import { email, maxLength, nonEmpty, minLength, object, pipe, string } from 'valibot'
+
+import { email, maxLength, minLength, nonEmpty, object, pipe, string } from 'valibot'
 
 export const messageSchema = object({
   name: pipe(

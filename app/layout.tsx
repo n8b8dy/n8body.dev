@@ -3,12 +3,12 @@ import type { PropsWithChildren } from 'react'
 
 import { Rubik } from 'next/font/google'
 
-import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { Header } from '@/components/layout/Header'
+
 import { cn } from '@/utils/styles'
 
 import { Providers } from './providers'
-
 import './globals.css'
 
 const rubik = Rubik({ subsets: ['latin-ext', 'cyrillic-ext'] })

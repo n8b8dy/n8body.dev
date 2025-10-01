@@ -1,6 +1,6 @@
+import { TechnologyHeading } from '@/collections/Home/TechnologyHeading'
 import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
-import { TechnologyHeading } from '@/collections/Home/TechnologyHeading'
 
 import { cn } from '@/utils/styles'
 
@@ -15,7 +15,7 @@ export const HeroSection = ({}: HeroSectionProps) => {
         <span className={cn('inline min-[500px]:hidden')}> Sh.</span>
       </Heading>
       <div className={cn('pl-1')}>
-        <Heading tag="h2">Full-Stack Software Engineer</Heading>
+        <Heading tag="h2">Full-stack & Mobile Software&nbsp;Engineer</Heading>
         <TechnologyHeading />
       </div>
     </Section>

@@ -2,8 +2,9 @@ import type { NavbarButtonProps } from '@/components/layout/NavbarButton'
 
 import Link from 'next/link'
 
-import { NavbarButton } from '@/components/layout/NavbarButton'
 import { Menu } from '@/components/layout/Menu'
+import { NavbarButton } from '@/components/layout/NavbarButton'
+
 import { cn } from '@/utils/styles'
 
 export interface NavbarProps {}

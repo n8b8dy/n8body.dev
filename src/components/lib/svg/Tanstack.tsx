@@ -232,7 +232,14 @@ export const TanstackSVG = (props: SVGProps) => {
             d="m402.861 391.51.471-4.088M382.21 388.752l.472-4.087M361.546 385.404l.485-3.845M337.59 371.883l2.56-2.498M324.276 359.567l2.56-2.497"
           />
         </g>
-        <ellipse cx={308.5} cy={720.5} fill="url(#tanstack_l)" mask="url(#tanstack_c)" rx={266} ry={316.5} />
+        <ellipse
+          cx={308.5}
+          cy={720.5}
+          fill="url(#tanstack_l)"
+          mask="url(#tanstack_c)"
+          rx={266}
+          ry={316.5}
+        />
         <ellipse
           cx={308.5}
           cy={720.5}

@@ -18,8 +18,8 @@ const EXPERIENCES: Array<ExperienceInsert> = [
   },
 ]
 
-;(async function seed() {
-  console.log('Seeding Database with experiences...')
+void (async function seed() {
+  console.info('Seeding Database with experiences...')
 
   try {
     await db.delete(experiences)
@@ -28,7 +28,7 @@ const EXPERIENCES: Array<ExperienceInsert> = [
       await db.insert(experiences).values(experience)
     }
 
-    console.log('Database seeding with experiences complete!')
+    console.info('Database seeding with experiences complete!')
   } catch (error) {
     console.error('Error during seeding experiences:', error)
   }

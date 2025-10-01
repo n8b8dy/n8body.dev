@@ -2,10 +2,7 @@ import type { SVGProps } from '@/components/lib/svg/base'
 
 export const ShadcnSVG = (props: SVGProps) => {
   return (
-    <svg
-      viewBox="0 0 256 256"
-      {...props}
-    >
+    <svg viewBox="0 0 256 256" {...props}>
       <path fill="none" d="M0 0h256v256H0z" />
       <path
         fill="none"

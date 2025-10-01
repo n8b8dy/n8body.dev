@@ -1,5 +1,7 @@
 import Link from 'next/link'
+
 import { Section } from '@/components/layout/Section'
+
 import { cn } from '@/utils/styles'
 
 export interface ErrorSectionProps {

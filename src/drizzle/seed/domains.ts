@@ -1,6 +1,6 @@
 import { db } from '@/drizzle/db'
-import { technologies } from '@/drizzle/schema/technology/technologies'
 import { domains } from '@/drizzle/schema/domain/domains'
+import { technologies } from '@/drizzle/schema/technology/technologies'
 
 export const DOMAINS = [
   {
@@ -12,8 +12,20 @@ export const DOMAINS = [
     lightBorderColor: '#C3D9F2',
     featured: true,
     technologies: [
-      { slug: 'JAVASCRIPT', name: 'JavaScript', color: '#F7DF1E', featured: true, showOff: false },
-      { slug: 'TYPESCRIPT', name: 'TypeScript', color: '#3178C6', featured: true, showOff: false },
+      {
+        slug: 'JAVASCRIPT',
+        name: 'JavaScript',
+        color: '#F7DF1E',
+        featured: true,
+        showOff: false,
+      },
+      {
+        slug: 'TYPESCRIPT',
+        name: 'TypeScript',
+        color: '#3178C6',
+        featured: true,
+        showOff: false,
+      },
       { slug: 'GOLANG', name: 'Go', color: '#00ADD8', featured: true, showOff: false },
     ],
   },
@@ -30,14 +42,38 @@ export const DOMAINS = [
       { slug: 'NEXTJS', name: 'Next.js', color: null, featured: true, showOff: false },
       { slug: 'ANGULAR', name: 'Angular', color: '#DD0031', featured: false, showOff: false },
       { slug: 'REMIX', name: 'Remix', color: null, featured: true, showOff: false },
-      { slug: 'REACT_ROUTER', name: 'React Router', color: null, featured: true, showOff: true },
+      {
+        slug: 'REACT_ROUTER',
+        name: 'React Router',
+        color: null,
+        featured: true,
+        showOff: true,
+      },
       { slug: 'TANSTACK', name: 'TanStack', color: null, featured: true, showOff: true },
       { slug: 'REDUX', name: 'Redux', color: null, featured: true, showOff: true },
       { slug: 'ZUSTAND', name: 'Zustand', color: null, featured: true, showOff: true },
-      { slug: 'TAILWIND', name: 'Tailwind CSS', color: '#38B2AC', featured: true, showOff: true },
+      {
+        slug: 'TAILWIND',
+        name: 'Tailwind CSS',
+        color: '#38B2AC',
+        featured: true,
+        showOff: true,
+      },
       { slug: 'SHADCN_UI', name: 'shadcn/ui', color: null, featured: true, showOff: true },
-      { slug: 'STYLED_COMPONENTS', name: 'Styled Components', color: null, featured: true, showOff: true },
-      { slug: 'FRAMER_MOTION', name: 'Framer Motion', color: null, featured: true, showOff: true },
+      {
+        slug: 'STYLED_COMPONENTS',
+        name: 'Styled Components',
+        color: null,
+        featured: true,
+        showOff: true,
+      },
+      {
+        slug: 'FRAMER_MOTION',
+        name: 'Framer Motion',
+        color: null,
+        featured: true,
+        showOff: true,
+      },
       { slug: 'GSAP', name: 'GSAP', color: null, featured: true, showOff: true },
       { slug: 'THREE_JS', name: 'Three.js', color: null, featured: false, showOff: true },
       { slug: 'VITE', name: 'Vite', color: null, featured: true, showOff: true },
@@ -52,7 +88,13 @@ export const DOMAINS = [
     lightBorderColor: '#C6E1E1',
     featured: true,
     technologies: [
-      { slug: 'REACT_NATIVE', name: 'React Native', color: '#61DAFB', featured: true, showOff: false },
+      {
+        slug: 'REACT_NATIVE',
+        name: 'React Native',
+        color: '#61DAFB',
+        featured: true,
+        showOff: false,
+      },
       { slug: 'EXPO', name: 'Expo', color: null, featured: true, showOff: false },
     ],
   },
@@ -89,7 +131,13 @@ export const DOMAINS = [
     featured: true,
     technologies: [
       { slug: 'SQL', name: 'SQL', color: null, featured: true, showOff: false },
-      { slug: 'POSTGRES', name: 'PostgreSQL', color: '#336791', featured: true, showOff: false },
+      {
+        slug: 'POSTGRES',
+        name: 'PostgreSQL',
+        color: '#336791',
+        featured: true,
+        showOff: false,
+      },
       { slug: 'MONGODB', name: 'MongoDB', color: null, featured: true, showOff: false },
       { slug: 'PRISMA', name: 'Prisma', color: '#0C344B', featured: true, showOff: true },
       { slug: 'DRIZZLE', name: 'Drizzle ORM', color: '#00897B', featured: true, showOff: true },
@@ -137,11 +185,30 @@ export const DOMAINS = [
     featured: true,
     technologies: [
       { slug: 'GIT', name: 'Git', color: '#F03C2E', featured: true, showOff: false },
-      { slug: 'INTELLIJ_IDEA', name: 'IntelliJ IDEA', color: null, featured: true, showOff: true },
+      {
+        slug: 'INTELLIJ_IDEA',
+        name: 'IntelliJ IDEA',
+        color: null,
+        featured: true,
+        showOff: true,
+      },
+    ],
+  },
+  {
+    name: 'Design',
+    slug: 'DESIGN',
+    backgroundColor: '#342437',
+    borderColor: '#85597d',
+    lightBackgroundColor: '#F5F2F7',
+    lightBorderColor: '#ddc3db',
+    featured: true,
+    technologies: [
+      { slug: 'FIGMA', name: 'Figma', color: null, featured: true, showOff: false },
     ],
   },
 ]
-;(async function seed() {
+
+void (async function seed() {
   console.info('Seeding Database with domains...')
 
   try {

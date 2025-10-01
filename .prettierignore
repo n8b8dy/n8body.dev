@@ -1,17 +1,16 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+pnpm-lock.yaml
 
 # testing
 /coverage
 
 # next.js
-/.next/
-/out/
+/.next
+/out
 
 # production
 /build
@@ -23,7 +22,6 @@
 # debug
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 
 # env files
 .env
@@ -37,4 +35,4 @@ yarn-error.log*
 next-env.d.ts
 
 # intellij
-/.idea/
+/.idea

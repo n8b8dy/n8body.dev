@@ -1,11 +1,12 @@
 'use client'
 
 import type { SubmitHandler } from 'react-hook-form'
+
 import type { MessageSchema } from '@/schemas/message'
 
+import { valibotResolver } from '@hookform/resolvers/valibot'
 import { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { valibotResolver } from '@hookform/resolvers/valibot'
 import { HiOutlineUser } from 'react-icons/hi'
 import { MdAlternateEmail } from 'react-icons/md'
 import { VscNewline } from 'react-icons/vsc'
@@ -13,10 +14,11 @@ import { VscNewline } from 'react-icons/vsc'
 import { Input } from '@/collections/Contacts/Input'
 import { TextArea } from '@/collections/Contacts/TextArea'
 
-import { cn } from '@/utils/styles'
+import { createMessage } from '@/actions/message'
+
 import { messageSchema } from '@/schemas/message'
 
-import { createMessage } from '@/actions/message'
+import { cn } from '@/utils/styles'
 
 export interface FormProps {}
 

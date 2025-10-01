@@ -1,9 +1,11 @@
 import Link from 'next/link'
 
-import { Section } from '@/components/layout/Section'
 import { LogInForm } from '@/collections/Auth/LogInForm'
-import { cn } from '@/utils/styles'
+import { Section } from '@/components/layout/Section'
+
 import { getSession } from '@/actions/session'
+
+import { cn } from '@/utils/styles'
 
 export default function Login() {
   const session = getSession()

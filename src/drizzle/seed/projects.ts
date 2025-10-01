@@ -2,13 +2,13 @@ import { eq, inArray } from 'drizzle-orm'
 
 import { db } from '@/drizzle/db'
 import { projects } from '@/drizzle/schema/project/projects'
-import { projectsToTechnologies } from '@/drizzle/schema/project/projectsToTechnologies'
 import { projectsToTags } from '@/drizzle/schema/project/projectsToTags'
-import { technologies } from '@/drizzle/schema/technology/technologies'
+import { projectsToTechnologies } from '@/drizzle/schema/project/projectsToTechnologies'
 import { tags } from '@/drizzle/schema/tag/tags'
+import { technologies } from '@/drizzle/schema/technology/technologies'
 
-;(async function seed() {
-  console.log('Seeding Database with projects...')
+void (async function seed() {
+  console.info('Seeding Database with projects...')
 
   try {
     const [{ projectId }] = await db
@@ -51,7 +51,7 @@ import { tags } from '@/drizzle/schema/tag/tags'
       .insert(projectsToTags)
       .values(projectTags.map(({ id: tagId }) => ({ projectId, tagId })))
 
-    console.log('Database seeding with projects complete!')
+    console.info('Database seeding with projects complete!')
   } catch (error) {
     console.error('Error during seeding with projects:', error)
   }

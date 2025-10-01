@@ -1,24 +1,22 @@
 'use client'
 
-import type { RenderComponentProps } from 'masonic'
-import type { Technology } from '@/drizzle/schema/technology/technologies'
-import type { Domain } from '@/drizzle/schema/domain/domains'
+import type { Masonry as _Masonry, RenderComponentProps } from 'masonic'
 
-import { useEffect, useMemo, useState } from 'react'
+import type { Domain } from '@/drizzle/schema/domain/domains'
+import type { Technology } from '@/drizzle/schema/technology/technologies'
+
 import dynamic from 'next/dynamic'
 import { useTheme } from 'next-themes'
-import { Masonry as _Masonry } from 'masonic'
-import { Tooltip } from 'react-tooltip'
+import { useEffect, useMemo, useState } from 'react'
 
+import { TechnologyCard } from '@/components/cards/TechnologyCard'
+import { InfoBadge } from '@/components/common/InfoBadge'
+import { Toggle } from '@/components/inputs/Toggle'
 import { Section } from '@/components/layout/Section'
 import { Heading } from '@/components/typography/Heading'
-import { TechnologyCard } from '@/components/cards/TechnologyCard'
-import { Toggle } from '@/components/inputs/Toggle'
-import { cn, universalColorOpacity } from '@/utils/styles'
 
 import { TechnologiesIcons } from '@/constants'
-import { IoInformationCircleSharp } from 'react-icons/io5'
-import { InfoBadge } from '@/components/common/InfoBadge'
+import { cn, universalColorOpacity } from '@/utils/styles'
 
 export interface TechStackSectionProps {
   domains: Array<Domain & { technologies: Array<Technology> }>
@@ -107,8 +105,9 @@ export const TechStackSection = ({ domains }: TechStackSectionProps) => {
         <div className={cn('flex gap-2 items-center')}>
           <InfoBadge>
             <span>
-              Show off mode enables rendering of all the little technologies that are too minor
-              to be taken seriously, but I&apos;ve still seen them in job postings.
+              Show off mode enables rendering of all the technologies that are either too minor
+              but occasionally required in job postings, <strong>or</strong> not my specialty,
+              yet I still use them fairly often.
             </span>
           </InfoBadge>
 
