@@ -3,13 +3,9 @@ import Link from 'next/link'
 import { LogInForm } from '@/collections/Auth/LogInForm'
 import { Section } from '@/components/layout/Section'
 
-import { getSession } from '@/actions/session'
-
 import { cn } from '@/utils/styles'
 
 export default function Login() {
-  const session = getSession()
-
   return (
     <Section className={cn('my-auto py-8 justify-center items-center')}>
       <div
